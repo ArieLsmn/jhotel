@@ -1,4 +1,9 @@
-
+/**
+ * Database pesanan
+ *
+ * @author Aria Lesmana
+ * @version 3-1-2018
+ */
 public class DatabasePesanan
 {
     // instance variables - replace the example below with your own
@@ -16,12 +21,12 @@ public class DatabasePesanan
     
     public Pesanan getPesanan(Customer cust)
     {
-        Pesanan pesan = new Pesanan();
-        return pesan;
+        //Pesanan pesan = new Pesanan();
+        return null;
     }
     
     public String[] getPesananDatabase(){
-    return list_pesanan;
+    return null;
     }
     
     public void pesananDibatalkan(Pesanan pesan){

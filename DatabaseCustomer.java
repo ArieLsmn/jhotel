@@ -1,4 +1,9 @@
-
+/**
+ * Database customer
+ *
+ * @author Aria Lesmana
+ * @version 3-1-2018
+ */
 public class DatabaseCustomer
 {
    private String list_customer[];// instance variables - replace the example below with your own

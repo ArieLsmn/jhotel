@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.target=Hotel
+comment0.text=\r\n\ Pendata\ Hotel\r\n\r\n\ @author\ Aria\ Lesmana\r\n\ @version\ 3-1-2018\r\n\ \r\n\ \r\n
+comment1.params=nama\ lokasi
+comment1.target=Hotel(java.lang.String,\ Lokasi)
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Hotel\r\n
+comment2.params=
+comment2.target=int\ getBintang()
+comment2.text=\r\n\ An\ example\ of\ a\ method\ -\ replace\ this\ comment\ with\ your\ own\r\n\r\n\ @param\ \ y\ \ a\ sample\ parameter\ for\ a\ method\r\n\ @return\ \ \ \ the\ sum\ of\ x\ and\ y\r\n
+comment3.params=
+comment3.target=java.lang.String\ getNama()
+comment4.params=
+comment4.target=Lokasi\ getLokasi()
+comment5.params=nama
+comment5.target=void\ setNama(java.lang.String)
+comment6.params=lokasi
+comment6.target=void\ setLokasi(Lokasi)
+comment7.params=bintang
+comment7.target=void\ setBintang(int)
+comment8.params=
+comment8.target=void\ printData()
+numComments=9
