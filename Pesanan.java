@@ -14,7 +14,7 @@ public class Pesanan
     private String jenis_kamar;
     private boolean IsDiproses;
     private boolean IsSelesai;
-   
+    private Room kamar;
     /**
      * Constructor for objects of class Pesanan
      */
@@ -38,6 +38,9 @@ public class Pesanan
     public boolean getStatusSelesai(){  //accessor untuk memanggil nilai variabel boolean IsSelesai
     return IsSelesai;    
    }
+   public Room getRoom(){
+    return kamar;
+   }
     public void setBiaya(double biaya){ //mutator untuk memasukkan nilai variabel biaya 
     this.biaya=biaya;
    }
@@ -49,6 +52,9 @@ public class Pesanan
    }
     public void setStatusSelesai(boolean diproses){ //mutator untuk memasukkan nilai variabel IsSelesai
     IsSelesai=diproses;
+   }
+   public void setRoom(Room kamar){
+    this.kamar=kamar;
    }
     public void printData(){    //fungsi print nilai biaya
         System.out.println(biaya);
