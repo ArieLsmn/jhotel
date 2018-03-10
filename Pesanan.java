@@ -11,7 +11,7 @@ public class Pesanan
     private double biaya;   //instance variable
     private Customer pelanggan;
     private String nama_pelanggan;
-    private String jenis_kamar;
+    private TipeKamar tipe_kamar;
     private boolean IsDiproses;
     private boolean IsSelesai;
     private Room kamar;
@@ -21,6 +21,7 @@ public class Pesanan
     public Pesanan(double biaya,Customer pelanggan){ //constructor Pesanan
     this.biaya=biaya;
     this.pelanggan=pelanggan;
+    nama_pelanggan=pelanggan.nama;
    }
    /**
      *
@@ -32,6 +33,12 @@ public class Pesanan
     public Customer getPelanggan(){     //accessor untuk memanggil nilai variabel pelanggan
     return pelanggan;
    }
+   public String getNamaPelanggan(){
+   return nama_pelanggan; 
+   }
+   public TipeKamar getTipeKamar(){
+   return tipe_kamar;
+    }
     public boolean getStatusDiproses(){ //accessor untuk memanggil nilai variabel boolean IsDiproses
     return IsDiproses;    
    }   
@@ -44,8 +51,14 @@ public class Pesanan
     public void setBiaya(double biaya){ //mutator untuk memasukkan nilai variabel biaya 
     this.biaya=biaya;
    }
-    public void setPelanggan(Customer baru){    //mutator untuk memasukkan nilai variabel Pelanggan
-    pelanggan=baru;
+    public void setPelanggan(Customer pelanggan){    //mutator untuk memasukkan nilai variabel Pelanggan
+    this.pelanggan=pelanggan;
+   }
+   public void setNamaPelanggan(String nama_pelanggan){
+    this.nama_pelanggan=nama_pelanggan;
+   }
+   public void setTipeKamar(TipeKamar tipe_kamar){
+    this.tipe_kamar=tipe_kamar;
    }
     public void setStatusDiproses(boolean diproses){    //mutator untuk memasukkan nilai variabel IsDiproses
     IsDiproses=diproses;
@@ -57,6 +70,11 @@ public class Pesanan
     this.kamar=kamar;
    }
     public void printData(){    //fungsi print nilai biaya
-        System.out.println(biaya);
+        
+        System.out.println(nama_pelanggan);
+        System.out.println(tipe_kamar);
+        System.out.println(IsDiproses);
+        System.out.println(IsSelesai);
+        //System.out.println(biaya);
    }
 }

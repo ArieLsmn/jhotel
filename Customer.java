@@ -34,6 +34,7 @@ public class Customer
     this.nama=nama;
     }
         public void printData(){
+        System.out.println(id);
         System.out.println(nama);
     }
 }

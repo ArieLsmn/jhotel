@@ -20,9 +20,13 @@ public class Room
     /**
      * Constructor for objects of class Room
      */
-    public Room()
-    {
-
+    public Room(Hotel hotel,String nomor_kamar,boolean isAvailable,Customer customer,double dailyTariff,StatusKamar status_kamar){
+        this.hotel=hotel;
+        this.nomor_kamar=nomor_kamar;
+        this.isAvailable=isAvailable;
+        this.customer=customer;
+        this.dailyTariff=dailyTariff;
+        this.status_kamar=status_kamar;
     }
 
     /**
@@ -31,8 +35,7 @@ public class Room
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public Hotel getHotel()
-    {
+    public Hotel getHotel(){
         // put your code here
     return hotel;    
     }
@@ -102,5 +105,23 @@ public class Room
     this.pesan=pesan;
     }
     
-    public void printData(){}
+    public void printData(){
+    System.out.print("Room");
+    System.out.print("Hotel=");
+    System.out.println(hotel.getNama());
+    System.out.print("Nomor=");
+    System.out.println(nomor_kamar);
+    System.out.print("Tersedia=");
+    System.out.println(isAvailable);
+    System.out.print("Pelanggan=");
+    System.out.println(customer.getNama());
+    System.out.print("Harga=");
+    System.out.println(dailyTariff);
+    System.out.print("Status=");
+    System.out.println(status_kamar);
+    System.out.print("Pesanan");
+    System.out.print("Nama=");
+    System.out.println(customer.getNama());
+    System.out.println(
+    }
 }

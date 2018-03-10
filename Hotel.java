@@ -16,10 +16,11 @@ public class Hotel
     /*
      * Constructor for objects of class Hotel
      */
-    public Hotel(String nama,Lokasi lokasi)
+    public Hotel(String nama,Lokasi lokasi,int bintang)
     {
         this.nama=nama;
         this.lokasi=lokasi;
+        this.bintang=bintang;
     }
 
     /*
@@ -54,5 +55,7 @@ public class Hotel
     }
     public void printData(){
         System.out.println(nama);
+        System.out.println(lokasi);
+        System.out.println(bintang);
     }
 }
