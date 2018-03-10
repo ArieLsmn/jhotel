@@ -122,6 +122,11 @@ public class Room
     System.out.print("Pesanan");
     System.out.print("Nama=");
     System.out.println(customer.getNama());
-    System.out.println(
+    System.out.print("Tipe=");
+    System.out.println(pesan.getTipeKamar());
+    System.out.print("Status Layanan Diproses=");
+    System.out.println(pesan.getStatusDiproses());
+    System.out.print("Status Layanan Selesai=");
+    System.out.println(pesan.getStatusSelesai());
     }
 }
