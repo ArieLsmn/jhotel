@@ -43,6 +43,7 @@ public class Lokasi
     {
         return deskripsiLokasi;
     }
+    
     public void setX(float x_coord)
     {
         this.x_coord=x_coord;
@@ -52,12 +53,18 @@ public class Lokasi
     {
         this.y_coord=y_coord;
     }
+    
     public void setDeskripsi(String deskripsi){
         deskripsiLokasi=deskripsi;
     }
+    
     public void printData(){
+        System.out.println("Lokasi");
+        System.out.print("Koordinat x = ");
         System.out.println(x_coord);
+        System.out.print("Koordinat y = ");
         System.out.println(y_coord);
+        System.out.print("Deskripsi = ");
         System.out.println(deskripsiLokasi);
     }
 }

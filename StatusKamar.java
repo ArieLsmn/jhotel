@@ -14,10 +14,10 @@ public enum StatusKamar
     private String status;
     
     private StatusKamar(String status){
-    this.status=status;}
-    
-public String toString(){ 
-            return status; 
-        } 
+    this.status=status;
+    }
+    public String toString(){ 
+    return status; 
+    } 
 }
 

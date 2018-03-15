@@ -8,33 +8,39 @@
  */
 public class Customer
 {
-    // instance variables - replace the example below with your own
     protected int id;
     protected String nama;
-
-    /**
-     * Constructor for objects of class Customer
+    /** 
+     * @param id 
+     * @param nama
      */
     public Customer(int id, String nama){
        this.id=id;
        this.nama=nama;
     }
-
+    /**
+     * @return id nomor id dari customer
+    */
     public int getID()
     {
         return id;
     }
+    
     public String getNama(){
-    return nama;
+        return nama;
     }
+    
     public void setID(int id){
         this.id=id;
     }
+    
     public void setNama(String nama){
-    this.nama=nama;
+        this.nama=nama;
     }
-        public void printData(){
-        System.out.println(id);
-        System.out.println(nama);
+    
+        public void printData(){// berfungsi melakukan
+        System.out.println("Customer");
+        System.out.println("ID = "+id);
+        System.out.println("Nama = "+nama);
     }
 }

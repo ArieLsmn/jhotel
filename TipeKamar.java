@@ -14,9 +14,10 @@ public enum TipeKamar
     private String tipe;
     
     private TipeKamar(String tipe){
-    this.tipe=tipe;}
+        this.tipe=tipe;
+    }
     
     public String toString(){ 
-            return tipe; 
-        } 
+        return tipe; 
+    } 
 }
