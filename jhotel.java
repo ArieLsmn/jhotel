@@ -38,8 +38,8 @@ public class JHotel
        else System.out.println("Salah, bukan Double Room");
        
        Room droom1= new DoubleRoom(hotel1,"301",true,StatusKamar.Booked);
-       Pesanan pesanan2 = new Pesanan(3.0,customer1,droom1);
        droom1.setDailyTariff(200000.0);
+       Pesanan pesanan2 = new Pesanan(3.0,customer1,droom1);
        Administrasi.pesananDitugaskan(pesanan2,droom1);
        droom1.printData();
        pesanan2.printData();
