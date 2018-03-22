@@ -6,14 +6,14 @@
  */
 public class DatabaseCustomer
 {
-   private String list_customer[];// instance variables - replace the example below with your own
+   private Customer list_customer[];// instance variables - replace the example below with your own
 public boolean addCustomer(Customer baru){
 return false;
 }
 public boolean removeCustomer(int id){
 return false;
 }
-public String[] getCustomerDatabase(){
+public Customer[] getCustomerDatabase(){
 return list_customer;
 }
 }

@@ -84,9 +84,18 @@ public abstract class Room
         this.pesan=pesan;
     }
     
-    //public String toString(){
-    
-    //}
+    public String toString(){
+        String roomHotel = "Hotel : "+hotel.getNama()+"\n";
+        String roomTipe = "Tipe : "+getTipeKamar()+"\n";
+        String roomHarga = "Harga : "+dailyTariff+"\n";
+        String roomStatus = "Status : "+status_kamar+"\n";
+        String roomCust = "Pelanggan : "+pesan.getPelanggan().getNama()+"\n";
+        if(pesan.getPelanggan()!= null)
+        return roomHotel+roomTipe+roomHarga+roomStatus+roomCust;
+        
+        else
+        return roomHotel+roomTipe+roomHarga+roomStatus;
+    }
     /*public void printData(){
         System.out.println("Room");
         System.out.println("Hotel = "+hotel.getNama());

@@ -15,4 +15,6 @@ comment6.params=lokasi
 comment6.target=void\ setLokasi(Lokasi)
 comment7.params=bintang
 comment7.target=void\ setBintang(int)
-numComments=8
+comment8.params=
+comment8.target=java.lang.String\ toString()
+numComments=9

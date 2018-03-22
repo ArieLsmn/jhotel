@@ -1,6 +1,6 @@
 import java.util.*;
 import java.util.regex.*;
-import java.text.SimpleDateFormat;
+import java.text.*;
 /**
  * Pendata Customer
  *
@@ -49,10 +49,9 @@ public class Customer
     }
     
     public Date getDOB(){
-        
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
-        String dobString = dateFormat.format(this.dob);
-        String printDob = "DOB : "+dobString;
+        DateFormat dateFormatter = new SimpleDateFormat("'DOB: 'dd MMMM yyyy");
+        String dobString = dateFormatter.format(this.dob);
+        System.out.println(dobString);
         return dob;
         
     }
@@ -85,13 +84,16 @@ public class Customer
     }
     
     public String toString(){
-    String custID = "ID : "+this.id+"\n";
-    String custName = "Name : "+this.nama+"\n";
-    String custEmail = "E-mail : "+this.email+"\n";
-    String custDOB = "DOB : "+this.dob+"\n";
-    String bookingProgress = "Booking order is in Progress\n";
+        String custID = "ID : "+this.id+"\n";
+        String custName = "Name : "+this.nama+"\n";
+        String custEmail = "E-mail : "+this.email+"\n";
+        String custDOB = "DOB : "+this.dob+"\n";
+        String bookingProgress = "Booking order is in Progress\n";
+        if(DatabasePesanan.getPesanan(this)!=null)
+        return custID+custName+custEmail+custDOB;
 
-    return custID+custName+custEmail+custDOB;
+        else 
+        return custID+custName+custEmail+custDOB+bookingProgress;
     }
     /*public void printData(){// berfungsi melakukan
         System.out.println("Customer");

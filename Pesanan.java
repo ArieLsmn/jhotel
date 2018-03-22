@@ -1,4 +1,5 @@
 import java.util.*;
+import java.text.*;
 /**
  * Pemroses pesanan
  *
@@ -19,11 +20,20 @@ public class Pesanan
     /**
      * Constructor for objects of class Pesanan
      */
-   public Pesanan(double jumlahHari,Customer pelanggan,Room kamar){ //constructor Pesanan
+   public Pesanan(double jumlahHari,Customer pelanggan,Room kamar,int tanggal, int bulan, int tahun){ //constructor Pesanan
        this.jumlahHari=jumlahHari;
        this.pelanggan=pelanggan;
        this.kamar=kamar;
        this.biaya=(kamar.getDailyTariff())*jumlahHari;
+       this.tanggalPesan = new GregorianCalendar(tahun,bulan,tanggal).getTime();
+   }
+   
+   public Pesanan(double jumlahHari,Customer pelanggan,Room kamar,Date tanggalPesan){ //constructor Pesanan
+       this.jumlahHari=jumlahHari;
+       this.pelanggan=pelanggan;
+       this.kamar=kamar;
+       this.biaya=(kamar.getDailyTariff())*jumlahHari;
+       this.tanggalPesan=tanggalPesan;
    }
    
    public double getBiaya(){           //accessor untuk memanggil nilai variabel biaya
@@ -51,6 +61,9 @@ public class Pesanan
    }
    
    public Date getTanggalPesan(){
+       DateFormat dateFormatter = new SimpleDateFormat("'Tanggal Pesan: 'dd MMMM yyyy");
+       String dateString = dateFormatter.format(this.tanggalPesan);
+       System.out.println(dateString);
        return tanggalPesan;
    }
    
@@ -82,9 +95,25 @@ public class Pesanan
        this.tanggalPesan=tanggalPesan;
    }
    
-   //public String toString(){
-   
-   //}
+   public String toString(){
+       String pesanCust = "Dibuat oleh "+pelanggan.getNama()+"\n";
+       String pesanHotel = "Booking untuk "+kamar.getHotel().getNama()+"\n";
+       String pesanNoKamar = "Kamar nomor "+kamar.getNomorKamar()+"\n";
+       String pesanTipeKamar = "Tipe Kamar "+kamar.getTipeKamar()+"\n";
+       String final_status="KOSONG";
+       
+       if(getStatusDiproses()==true && getStatusSelesai()==false)
+       final_status="DIPROSES";
+       
+       else if(getStatusDiproses()==false && getStatusSelesai()==true)
+       final_status="SELESAI";
+       
+       else if(getStatusDiproses()==false && getStatusSelesai()==false)
+       final_status="KOSONG";
+       
+       String pesanStatus = "Status : "+final_status+"\n";
+       return pesanCust+pesanHotel+pesanNoKamar+pesanTipeKamar+pesanStatus;
+   }
    /*public void printData(){    //fungsi print nilai biaya     
         System.out.println("Pesanan");
         System.out.println("Nama = "+pelanggan.getNama());

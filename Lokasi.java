@@ -58,16 +58,11 @@ public class Lokasi
         deskripsiLokasi=deskripsi;
     }
     
-    //public String toString(){
-    
-    //}
-    /*public void printData(){
-        System.out.println("Lokasi");
-        System.out.print("Koordinat x = ");
-        System.out.println(x_coord);
-        System.out.print("Koordinat y = ");
-        System.out.println(y_coord);
-        System.out.print("Deskripsi = ");
-        System.out.println(deskripsiLokasi);
-    }*/
+    public String toString(){
+        String locX = "X : "+this.x_coord+"\n";
+        String locY = "Y : "+this.y_coord+"\n";
+        String locDeskripsi = "Deskripsi : "+this.deskripsiLokasi+"\n";
+
+        return locX+locY+locDeskripsi;
+    }
 }

@@ -46,9 +46,13 @@ public class Hotel
         this.bintang=bintang;
     }
     
-    //public String toString(){
-    
-    //}
+    public String toString(){
+        String hotelName = "Nama : "+this.nama+"\n";
+        String hotelLokasi = "Lokasi : "+this.lokasi.getDeskripsi()+"\n";
+        String hotelBintang = "Bintang: "+this.bintang+"\n";
+
+        return hotelName+hotelLokasi+hotelBintang;
+    }
     /*public void printData(){
         System.out.println("Hotel");
         System.out.println("Nama = "+nama);

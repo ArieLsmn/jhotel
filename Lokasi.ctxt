@@ -17,4 +17,6 @@ comment6.params=y_coord
 comment6.target=void\ setY(float)
 comment7.params=deskripsi
 comment7.target=void\ setDeskripsi(java.lang.String)
-numComments=8
+comment8.params=
+comment8.target=java.lang.String\ toString()
+numComments=9

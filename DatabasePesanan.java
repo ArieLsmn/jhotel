@@ -7,28 +7,27 @@
 public class DatabasePesanan
 {
     // instance variables - replace the example below with your own
-    private String list_pesanan[];
+    private static Pesanan list_pesanan[];
 
-    public boolean addPesanan(Pesanan baru)
+    public static boolean addPesanan(Pesanan baru)
     {
         return false;
     }
 
-    public boolean removePesanan(Pesanan pesan)
+    public static boolean removePesanan(Pesanan pesan)
     {
         return false;
     }
     
-    public Pesanan getPesanan(Customer cust)
+    public static Pesanan getPesanan(Customer cust)
     {
-        //Pesanan pesan = new Pesanan();
         return null;
     }
     
-    public String[] getPesananDatabase(){
-    return null;
+    public static Pesanan[] getPesananDatabase(){
+    return list_pesanan;
     }
     
-    public void pesananDibatalkan(Pesanan pesan){
+    public static void pesananDibatalkan(Pesanan pesan){
     }
 }
