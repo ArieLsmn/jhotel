@@ -3,7 +3,7 @@
  * Pendata Hotel
  *
  * @author Aria Lesmana
- * @version 3-1-2018
+ * @version 10-3-2018
  * 
  * 
  */
@@ -20,8 +20,8 @@ public class Hotel
         this.bintang=bintang;
     }
     
-    public int getBintang()
-    {
+    public int getBintang(){
+        
         return bintang;
     }
     
@@ -46,10 +46,13 @@ public class Hotel
         this.bintang=bintang;
     }
     
-    public void printData(){
+    //public String toString(){
+    
+    //}
+    /*public void printData(){
         System.out.println("Hotel");
         System.out.println("Nama = "+nama);
         System.out.println("Lokasi = "+lokasi.getDeskripsi());
         System.out.println("Bintang = "+bintang);
-    }
+    }*/
 }

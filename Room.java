@@ -2,8 +2,8 @@
 /**
  * Write a description of class Room here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Aria Lesmana
+ * @version 15-3-2018
  */
 public abstract class Room
 {
@@ -11,9 +11,9 @@ public abstract class Room
     private Hotel hotel;
     private String nomor_kamar;
     private boolean isAvailable;
-    protected double dailyTariff;
     private StatusKamar status_kamar;
     private Pesanan pesan;
+    protected double dailyTariff;
 
     /**
      * Constructor for objects of class Room
@@ -84,7 +84,10 @@ public abstract class Room
         this.pesan=pesan;
     }
     
-    public void printData(){
+    //public String toString(){
+    
+    //}
+    /*public void printData(){
         System.out.println("Room");
         System.out.println("Hotel = "+hotel.getNama());
         System.out.println("Nomor = "+nomor_kamar);
@@ -92,6 +95,6 @@ public abstract class Room
         System.out.println("Tersedia = "+isAvailable); 
         System.out.println("Status = "+status_kamar);
         System.out.println("Harga = "+dailyTariff);
-    }
+    }*/
     
 }

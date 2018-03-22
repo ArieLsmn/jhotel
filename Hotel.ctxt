@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Hotel
-comment0.text=\r\n\ Pendata\ Hotel\r\n\r\n\ @author\ Aria\ Lesmana\r\n\ @version\ 3-1-2018\r\n\ \r\n\ \r\n
+comment0.text=\r\n\ Pendata\ Hotel\r\n\r\n\ @author\ Aria\ Lesmana\r\n\ @version\ 10-3-2018\r\n\ \r\n\ \r\n
 comment1.params=nama\ lokasi\ bintang
 comment1.target=Hotel(java.lang.String,\ Lokasi,\ int)
 comment2.params=
@@ -15,6 +15,4 @@ comment6.params=lokasi
 comment6.target=void\ setLokasi(Lokasi)
 comment7.params=bintang
 comment7.target=void\ setBintang(int)
-comment8.params=
-comment8.target=void\ printData()
-numComments=9
+numComments=8

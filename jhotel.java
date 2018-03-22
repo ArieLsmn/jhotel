@@ -2,7 +2,7 @@
  * Class program utama
  *
  * @author Aria Lesmana
- * @version 3-1-2018
+ * @version 15-3-2018
  */
 public class JHotel
 {
@@ -21,28 +21,29 @@ public class JHotel
        Hotel hotel1 = new Hotel("Prodeo",lokasi1,5);
        Room sroom1= new SingleRoom(hotel1,"101",true,StatusKamar.Booked);
        sroom1.setDailyTariff(100000.0);
-       Customer customer1 = new Customer(1,"Aria L");
+       //Customer customer1 = new Customer(1,"Aria L");
        Pesanan pesanan1 = new Pesanan(3.0,customer1,sroom1);
-       lokasi1.printData();
-       customer1.printData();
-       hotel1.printData();
+       //lokasi1.printData();
+       //customer1.printData();
+       //hotel1.printData();
        
        System.out.println("\n-----Method 1-----");
        Administrasi.pesananDitugaskan(pesanan1,sroom1);
-       sroom1.printData();
-       pesanan1.printData();
+       //sroom1.printData();
+       //pesanan1.printData();
        if(sroom1 instanceof DoubleRoom)
        {
        System.out.println("Benar, Double Room");
        }
        else System.out.println("Salah, bukan Double Room");
        
+       System.out.println("\n-----Method 2-----");
        Room droom1= new DoubleRoom(hotel1,"301",true,StatusKamar.Booked);
        droom1.setDailyTariff(200000.0);
        Pesanan pesanan2 = new Pesanan(3.0,customer1,droom1);
        Administrasi.pesananDitugaskan(pesanan2,droom1);
-       droom1.printData();
-       pesanan2.printData();
+       //droom1.printData();
+       //pesanan2.printData();
        if(droom1 instanceof DoubleRoom)
        {
        System.out.println("Benar, Double Room");

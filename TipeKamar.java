@@ -2,8 +2,8 @@
 /**
  * Enumeration class TipeKamar - write a description of the enum class here
  *
- * @author (your name here)
- * @version (version number or date here)
+ * @author Aria Lesmana
+ * @version 22-3-2018
  */
 public enum TipeKamar
 {
@@ -11,13 +11,13 @@ public enum TipeKamar
     Double("Double"), 
     Premium("Premium");
     
-    private String tipe;
-    
-    private TipeKamar(String tipe){
-        this.tipe=tipe;
+    //private String tipe;
+    private String deskripsi;
+    TipeKamar(String deksripsi){
+        this.deskripsi=deskripsi;
     }
-    
+   
     public String toString(){ 
-        return tipe; 
+        return deskripsi; 
     } 
 }

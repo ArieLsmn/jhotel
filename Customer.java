@@ -1,8 +1,11 @@
+import java.util.*;
+import java.util.regex.*;
+import java.text.SimpleDateFormat;
 /**
  * Pendata Customer
  *
  * @author Aria Lesmana
- * @version 3-1-2018
+ * @version 22-3-2018
  * 
  * 
  */
@@ -10,14 +13,25 @@ public class Customer
 {
     protected int id;
     protected String nama;
+    protected String email;
+    protected Date dob;
+    static Calendar cal;
     /** 
      * @param id 
      * @param nama
      */
-    public Customer(int id, String nama){
+    public Customer(int id, String nama, int tanggal, int bulan, int tahun){
        this.id=id;
        this.nama=nama;
+       this.dob = new GregorianCalendar(tahun,bulan,tanggal).getTime();
     }
+    
+    public Customer(int id, String nama, Date dob){
+       this.id=id;
+       this.nama=nama;
+       this.dob=dob;
+    }
+    
     /**
      * @return id nomor id dari customer
     */
@@ -30,6 +44,19 @@ public class Customer
         return nama;
     }
     
+    public String getEmail(){
+        return email;
+    }
+    
+    public Date getDOB(){
+        
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss");
+        String dobString = dateFormat.format(this.dob);
+        String printDob = "DOB : "+dobString;
+        return dob;
+        
+    }
+    
     public void setID(int id){
         this.id=id;
     }
@@ -38,9 +65,37 @@ public class Customer
         this.nama=nama;
     }
     
-        public void printData(){// berfungsi melakukan
+    public void setEmail(String email){
+        Pattern p;
+        Matcher m;
+        String emailPattern="^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
+        p=Pattern.compile(emailPattern);
+        m=p.matcher(email);
+        
+        if(m.matches()){
+        this.email=email;
+        System.out.println("Berhasil = "+this.email);
+    }
+        else 
+        System.out.println("Salah");
+    }
+    
+    public void setDOB(Date dob){
+        this.dob=dob;
+    }
+    
+    public String toString(){
+    String custID = "ID : "+this.id+"\n";
+    String custName = "Name : "+this.nama+"\n";
+    String custEmail = "E-mail : "+this.email+"\n";
+    String custDOB = "DOB : "+this.dob+"\n";
+    String bookingProgress = "Booking order is in Progress\n";
+
+    return custID+custName+custEmail+custDOB;
+    }
+    /*public void printData(){// berfungsi melakukan
         System.out.println("Customer");
         System.out.println("ID = "+id);
         System.out.println("Nama = "+nama);
-    }
+    }*/
 }

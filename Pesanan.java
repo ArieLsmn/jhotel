@@ -1,8 +1,9 @@
+import java.util.*;
 /**
  * Pemroses pesanan
  *
  * @author Aria Lesmana
- * @version 3-1-2018
+ * @version 22-3-2018
  *
  *
  */
@@ -14,6 +15,7 @@ public class Pesanan
    private boolean IsDiproses;
    private boolean IsSelesai;
    private Room kamar;
+   private Date tanggalPesan;
     /**
      * Constructor for objects of class Pesanan
      */
@@ -48,6 +50,10 @@ public class Pesanan
        return kamar;
    }
    
+   public Date getTanggalPesan(){
+       return tanggalPesan;
+   }
+   
    public void setBiaya(double biaya){ //mutator untuk memasukkan nilai variabel biaya 
        this.biaya=(kamar.getDailyTariff())*jumlahHari;
    }
@@ -72,12 +78,19 @@ public class Pesanan
        this.kamar=kamar;
    }
    
-   public void printData(){    //fungsi print nilai biaya     
+   public void setTanggalPesan(Date tanggalPesan){
+       this.tanggalPesan=tanggalPesan;
+   }
+   
+   //public String toString(){
+   
+   //}
+   /*public void printData(){    //fungsi print nilai biaya     
         System.out.println("Pesanan");
         System.out.println("Nama = "+pelanggan.getNama());
         System.out.println("Jumlah Hari = "+jumlahHari);
         System.out.println("Biaya = "+biaya);
         System.out.println("Status diproses = "+IsDiproses);
         System.out.println("Status selesai = "+IsSelesai);
-   }
+   }*/
 }
