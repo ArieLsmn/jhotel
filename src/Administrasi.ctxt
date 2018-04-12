@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=Administrasi
+comment0.text=\r\n\ Program\ untuk\ fungsi\ Administrasi\ hotel.\r\n\r\n\ @author\ Aria\ Lesmana\r\n\ @version\ 10-3-2018\r\n
+comment1.params=
+comment1.target=Administrasi()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Administrasi\r\n
+comment2.params=pesan\ kamar
+comment2.target=void\ pesananDitugaskan(Pesanan,\ Room)
+comment2.text=\r\n\ @param\ pesan\r\n\ @param\ kamar\r\n
+comment3.params=kamar
+comment3.target=void\ pesananDibatalkan(Room)
+comment3.text=public\ static\ void\ roomLepasPesanan(Room\ kamar){\r\n\ \ \ \ \ \ \ \ kamar.setStatusKamar(StatusKamar.Vacant);\r\n\ \ \ \ \ \ \ \ kamar.setPesanan(null);\r\n}
+comment4.params=kamar
+comment4.target=void\ pesananSelesai(Room)
+comment5.params=pesan
+comment5.target=void\ pesananDibatalkan(Pesanan)
+comment6.params=pesan
+comment6.target=void\ pesananSelesai(Pesanan)
+numComments=7
