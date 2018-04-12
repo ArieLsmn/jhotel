@@ -42,19 +42,19 @@ public class Administrasi
     }*/
     
     public static void pesananDibatalkan(Room kamar){
-       // Pesanan pesan = kamar.getPesanan();
-       //pesan.setStatusSelesai(false);
-       //pesan.setStatusDiproses(false);
+       Pesanan pesan = DatabasePesanan.getPesanan(kamar);
+       pesan.setStatusSelesai(false);
+       pesan.setStatusDiproses(false);
         //kamar.setPesanan(null);
-       //pesan.setStatusAktif(false);
+       pesan.setStatusAktif(false);
     }
     
     public static void pesananSelesai(Room kamar){
-        //Pesanan pesan = kamar.getPesanan();
-        //pesan.setStatusSelesai(true);
-        //pesan.setStatusDiproses(false);
+        Pesanan pesan = DatabasePesanan.getPesanan(kamar);
+        pesan.setStatusSelesai(true);
+        pesan.setStatusDiproses(false);
         //kamar.setPesanan(null);
-        //pesan.setStatusAktif(false);
+        pesan.setStatusAktif(false);
     }
     
     public static void pesananDibatalkan(Pesanan pesan){
