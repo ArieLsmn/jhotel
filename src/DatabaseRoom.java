@@ -25,15 +25,77 @@ public class DatabaseRoom
      * @param  y  a sample parameter for a method
      * @return    the sum of x and y
      */
-    public boolean addRoom(Customer baru)
+    public static ArrayList<Room> getRoomDatabase()
     {
-        // put your code here
-        return true;
+        return ROOM_DATABASE;
     }
-    public boolean removeRoom(int id){
-    return true;
+    
+    public boolean addRoom(Room baru)
+    {
+        for(Room kamar : ROOM_DATABASE)
+        {
+            if(!kamar.getHotel().equals(baru.getHotel()) &&
+                    !kamar.getNomorKamar().equals(baru.getNomorKamar()))
+            {
+                ROOM_DATABASE.add(baru);
+                return true;
+            }
+        }
+        return false;
     }
-    public ArrayList<Room> getRoomDatabase(){
-    return ROOM_DATABASE;
+    
+    public static Room getRoom(Hotel hotel, String nomor_kamar)
+    {
+        for(Room kamar : ROOM_DATABASE)
+        {
+            if(kamar.getHotel().equals(hotel) &&
+                    kamar.getNomorKamar().equals(nomor_kamar))
+            {
+                return kamar;
+            }
+        }
+        return null;
+    }
+    
+    public static ArrayList<Room> getRoomsFromHotel(Hotel hotel)
+    {
+        ArrayList<Room> tempRoom = new ArrayList<Room>();
+        for(Room kamar : ROOM_DATABASE)
+        {
+            if(kamar.getHotel().equals(hotel))
+            {
+                tempRoom.add(kamar);
+            }
+        }
+        return tempRoom;
+    }
+    
+    public static ArrayList<Room> getVacantRooms()
+    {
+        ArrayList<Room> tempRoom = new ArrayList<Room>();
+        for(Room kamar : ROOM_DATABASE)
+        {
+            if(kamar.getStatusKamar().equals(StatusKamar.Vacant))
+            {
+                tempRoom.add(kamar);
+            }
+        }
+        return tempRoom;    
+    }
+    public static boolean removeRoom(Hotel hotel, String nomor_kamar)
+    {
+        for(Room kamar : ROOM_DATABASE)
+        {
+            if(kamar.getHotel().equals(hotel) &&
+                    kamar.getNomorKamar().equals(nomor_kamar))
+            {
+                Administrasi.pesananDibatalkan(kamar);
+                if(ROOM_DATABASE.remove(kamar))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }

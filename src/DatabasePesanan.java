@@ -22,54 +22,92 @@ public class DatabasePesanan
     
     public static boolean addPesanan(Pesanan baru)
     {
-        if(baru.getStatusAktif() == true){
+        if(PESANAN_DATABASE.contains(baru))
+        {
+            if(baru.getStatusAktif() == true)
+            {   
+                return false;
+            }
+            else 
+            {   PESANAN_DATABASE.add(baru);
+                return true;   
+            }
+        }
+        else
+        {
+        
         PESANAN_DATABASE.add(baru);
-        return true;
-    }
-    else return false;
-    }
-
-    public static Pesanan getPesanan(int id)
-    {int n=0;
-    Pesanan pesan= PESANAN_DATABASE.get(n);    //for(Pesanan pesan : PESANAN_DATABASE){
-        for(n=0;n<PESANAN_DATABASE.size();n++){
+        return true;   
             
-        if(pesan.getID() == id)
-        return pesan;
-        
-        else 
+        }
+    }
+    
+    public static Pesanan getPesanan(int id)
+    {
+        for(Pesanan pesanan : PESANAN_DATABASE)
+        {
+            if(pesanan.getID() == id)
+            {
+                return pesanan;
+            }
+        }
+
         return null;
-        
-        
     }
-    return pesan;
-    }
+    
+    
     public static Pesanan getPesanan(Room kamar)
     {
-        for(Pesanan pesan : PESANAN_DATABASE){
-        if(pesan.getRoom() == kamar)
-        return pesan;
-        
-        else 
-        return null;
+        for(Pesanan pesanan : PESANAN_DATABASE)
+        {
+            if(pesanan.getRoom().equals(kamar))
+            {
+                return pesanan;
+            }
         }
+
         return null;
     }
     
     public static Pesanan getPesananAktif(Customer pelanggan)
     {
-        for(Pesanan pesan : PESANAN_DATABASE){
-        if((pesan.getStatusAktif() == true)&& (pesan.getPelanggan()==pelanggan))
-        return pesan;
-        
-        else 
-        return null;
+        for(Pesanan pesanan : PESANAN_DATABASE)
+        {
+            if(pesanan.getPelanggan().equals(pelanggan))
+            {
+                if(pesanan.getStatusAktif())
+                {
+                    return pesanan;
+                }
+            }
         }
         return null;
-    }   
-    
+    }
     public static boolean removePesanan(Pesanan pesan)
-    {
+        {
+        for(Pesanan pesanan : PESANAN_DATABASE)
+        {
+            if(pesanan.equals(pesan))
+            {
+                if(pesanan.getRoom() != null)
+                {
+                    Administrasi.pesananDibatalkan(pesanan);
+                }
+                else
+                {
+                    if(pesanan.getStatusAktif())
+                    {
+                        pesanan.setStatusAktif(false);
+                    }
+                }
+
+                if(PESANAN_DATABASE.remove(pesanan))
+                {
+                    return true;
+                }
+            }
+        }
+
         return false;
     }
 }
