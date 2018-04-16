@@ -3,7 +3,8 @@
  * Program untuk fungsi Administrasi hotel.
  *
  * @author Aria Lesmana
- * @version 10-3-2018
+ * @version 1.6
+ * @since 12-4-2018
  */
 public class Administrasi
 {

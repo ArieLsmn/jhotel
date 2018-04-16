@@ -21,14 +21,14 @@ public class Customer
      * @param id 
      * @param nama
      */
-    public Customer(int id, String nama, int tanggal, int bulan, int tahun){
-       this.id=id;
+    public Customer( String nama, int tanggal, int bulan, int tahun){
+       id=DatabaseCustomer.getLastCustomerID()+1;
        this.nama=nama;
        this.dob = new GregorianCalendar(tahun,bulan,tanggal).getTime();
     }
     
-    public Customer(int id, String nama, Date dob){
-       this.id=id;
+    public Customer( String nama, Date dob){
+       id=DatabaseCustomer.getLastCustomerID()+1;
        this.nama=nama;
        this.dob=dob;
     }
@@ -97,11 +97,11 @@ public class Customer
         String custEmail = "E-mail : "+this.email+"\n";
         String custDOB = "DOB : "+this.dob+"\n";
         String bookingProgress = "Booking order is in Progress\n";
-        //if(DatabasePesanan.getPesanan(this)!=null)
+        if(DatabasePesanan.getPesananAktif(this)!=null)
         return custID+custName+custEmail+custDOB;
 
-        //else 
-        //return custID+custName+custEmail+custDOB+bookingProgress;
+        else 
+        return custID+custName+custEmail+custDOB+bookingProgress;
     }
     /*public void printData(){// berfungsi melakukan
         System.out.println("Customer");

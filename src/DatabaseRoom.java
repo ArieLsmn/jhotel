@@ -2,8 +2,9 @@ import java.util.ArrayList;
 /**
  * Write a description of class DatabaseRoom here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Aria Lesmana
+ * @version 1.6
+ * @since 12-3-2018
  */
 public class DatabaseRoom
 {
@@ -30,7 +31,7 @@ public class DatabaseRoom
         return ROOM_DATABASE;
     }
     
-    public boolean addRoom(Room baru)
+    public static boolean addRoom(Room baru)
     {
         for(Room kamar : ROOM_DATABASE)
         {

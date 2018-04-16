@@ -3,8 +3,8 @@ import java.util.ArrayList;
  * Database pesanan
  *
  * @author Aria Lesmana
- * @version 1.5
- * @since 22-3-2018
+ * @version 1.6
+ * @since 12-4-2018
  */
 public class DatabasePesanan
 {
@@ -35,20 +35,18 @@ public class DatabasePesanan
         }
         else
         {
-        
         PESANAN_DATABASE.add(baru);
-        return true;   
-            
+        return true;       
         }
     }
     
     public static Pesanan getPesanan(int id)
     {
-        for(Pesanan pesanan : PESANAN_DATABASE)
+        for(Pesanan pesan : PESANAN_DATABASE)
         {
-            if(pesanan.getID() == id)
+            if(pesan.getID() == id)
             {
-                return pesanan;
+                return pesan;
             }
         }
 

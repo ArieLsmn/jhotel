@@ -2,7 +2,8 @@
  * Class program utama
  *
  * @author Aria Lesmana
- * @version 15-3-2018
+ * @version 1.6
+ * @since 12-4-2018
  */
 public class JHotel
 {

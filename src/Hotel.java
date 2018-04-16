@@ -3,8 +3,8 @@
  * Pendata Hotel
  *
  * @author Aria Lesmana
- * @version 1.5
- * @since 10-3-2018
+ * @version 1.6
+ * @since 12-4-2018
  * 
  * 
  */
@@ -13,7 +13,7 @@ public class Hotel
     private String nama;
     private Lokasi lokasi;// instance variables - replace the example below with your own
     private int bintang;
-    
+    private int id;
     /**
      * @param nama
      * @param lokasi
@@ -24,6 +24,14 @@ public class Hotel
         this.nama=nama;
         this.lokasi=lokasi;
         this.bintang=bintang;
+        id=DatabaseHotel.getLastHotelID()+1;
+    }
+    /**
+     * @return int id
+     */
+    public int getID(){
+        
+        return id;
     }
     /**
      * @return int bintang
@@ -43,6 +51,12 @@ public class Hotel
      */
     public Lokasi getLokasi(){
         return lokasi;
+    }
+    /**
+     * @param id
+     */
+    public void setID(int id){
+        this.id=id;
     }
     /**
      * @param nama
