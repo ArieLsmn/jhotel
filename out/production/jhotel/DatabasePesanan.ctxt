@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=DatabasePesanan
+comment0.text=\r\n\ Database\ pesanan\r\n\r\n\ @author\ Aria\ Lesmana\r\n\ @version\ 1.6\r\n\ @since\ 12-4-2018\r\n
+comment1.params=
+comment1.target=java.util.ArrayList\ getPesananDatabase()
+comment2.params=
+comment2.target=int\ getLastPesananID()
+comment3.params=baru
+comment3.target=boolean\ addPesanan(Pesanan)
+comment4.params=id
+comment4.target=Pesanan\ getPesanan(int)
+comment5.params=kamar
+comment5.target=Pesanan\ getPesanan(Room)
+comment6.params=pelanggan
+comment6.target=Pesanan\ getPesananAktif(Customer)
+comment7.params=pesan
+comment7.target=boolean\ removePesanan(Pesanan)
+numComments=8

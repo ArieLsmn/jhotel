@@ -35,8 +35,8 @@ public class DatabaseRoom
     {
         for(Room kamar : ROOM_DATABASE)
         {
-            if(!kamar.getHotel().equals(baru.getHotel()) &&
-                    !kamar.getNomorKamar().equals(baru.getNomorKamar()))
+            if(!((kamar.getHotel()).equals(baru.getHotel())) &&
+                    !((kamar.getNomorKamar()).equals(baru.getNomorKamar())))
             {
                 ROOM_DATABASE.add(baru);
                 return true;

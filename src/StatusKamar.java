@@ -13,12 +13,11 @@ public enum StatusKamar
     
     //private String status;
     private String deskripsi;
-    StatusKamar(String deskripsi){
-        this.deskripsi=deskripsi;
-    }
+    
+    StatusKamar(String deskripsi){ this.deskripsi=deskripsi; }
     
     public String toString(){ 
-        return deskripsi; 
+        return (this.deskripsi); 
     } 
 }
 

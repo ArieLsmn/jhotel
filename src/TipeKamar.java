@@ -13,11 +13,12 @@ public enum TipeKamar
     
     //private String tipe;
     private String deskripsi;
-    TipeKamar(String deksripsi){
-        this.deskripsi=deskripsi;
+    
+    TipeKamar(String deskripsi){
+        this.deskripsi= deskripsi;
     }
    
     public String toString(){ 
-        return deskripsi; 
+        return (this.deskripsi); 
     } 
 }

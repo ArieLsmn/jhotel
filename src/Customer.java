@@ -12,7 +12,7 @@ import java.text.*;
  */
 public class Customer
 {
-    protected int id;
+    protected int id=0;
     protected String nama;
     protected String email;
     protected Date dob;
@@ -21,14 +21,14 @@ public class Customer
      * @param id 
      * @param nama
      */
-    public Customer( String nama, int tanggal, int bulan, int tahun){
-       id=DatabaseCustomer.getLastCustomerID()+1;
+    public Customer(String nama, int tanggal, int bulan, int tahun){
+       this.id = DatabaseCustomer.getLastCustomerID() + 1;
        this.nama=nama;
-       this.dob = new GregorianCalendar(tahun,bulan,tanggal).getTime();
+       this.dob = new GregorianCalendar(tahun,bulan-1,tanggal).getTime();
     }
     
     public Customer( String nama, Date dob){
-       id=DatabaseCustomer.getLastCustomerID()+1;
+       this.id = DatabaseCustomer.getLastCustomerID() + 1;
        this.nama=nama;
        this.dob=dob;
     }

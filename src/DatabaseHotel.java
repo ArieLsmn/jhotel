@@ -31,8 +31,7 @@ public class DatabaseHotel
     public static boolean addHotel(Hotel baru)
     {
         if(HOTEL_DATABASE.contains(baru.getID()))
-        {
-            
+        {      
             return false;
         }
         else 

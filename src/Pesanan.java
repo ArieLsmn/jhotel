@@ -28,7 +28,7 @@ public class Pesanan
        this.jumlahHari=jumlahHari;
        this.pelanggan=pelanggan;
        //this.kamar=kamar;
-       this.biaya=(kamar.getDailyTariff())*jumlahHari;
+       //this.biaya=(kamar.getDailyTariff())*jumlahHari;
        tanggalPesan = new Date();
        isAktif=true;
        id=DatabasePesanan.getLastPesananID()+1;
@@ -116,23 +116,28 @@ public class Pesanan
    }
    
    public String toString(){
-       String pesanCust = "Dibuat oleh "+pelanggan.getNama()+"\n";
-       String pesanHotel = "Booking untuk "+kamar.getHotel().getNama()+"\n";
-       String pesanNoKamar = "Kamar nomor "+kamar.getNomorKamar()+"\n";
-       String pesanTipeKamar = "Tipe Kamar "+kamar.getTipeKamar()+"\n";
-       String final_status="KOSONG";
+        String pesanCust = "Dibuat oleh "+pelanggan.getNama()+"\n";
+        String final_status="KOSONG";
        
-       if(getStatusDiproses()==true && getStatusSelesai()==false)
-       final_status="DIPROSES";
+        if(getStatusDiproses()==true && getStatusSelesai()==false)
+        final_status="DIPROSES";
        
-       else if(getStatusDiproses()==false && getStatusSelesai()==true)
-       final_status="SELESAI";
+        else if(getStatusDiproses()==false && getStatusSelesai()==true)
+        final_status="SELESAI";
        
-       else if(getStatusDiproses()==false && getStatusSelesai()==false)
-       final_status="KOSONG";
+        else if(getStatusDiproses()==false && getStatusSelesai()==false)
+        final_status="KOSONG";
        
-       String pesanStatus = "Status : "+final_status+"\n";
-       return pesanCust+pesanHotel+pesanNoKamar+pesanTipeKamar+pesanStatus;
+        String pesanStatus = "Status : "+final_status+"\n";
+        if(kamar == null)
+        return pesanCust+pesanStatus;
+        else
+        {   
+            String pesanHotel = "Booking untuk "+kamar.getHotel().getNama()+"\n";
+            String pesanNoKamar = "Kamar nomor "+kamar.getNomorKamar()+"\n";
+            String pesanTipeKamar = "Tipe Kamar "+kamar.getTipeKamar()+"\n";
+            return pesanCust+pesanHotel+pesanNoKamar+pesanTipeKamar+pesanStatus;
+        }
    }
    /*public void printData(){    //fungsi print nilai biaya     
         System.out.println("Pesanan");
