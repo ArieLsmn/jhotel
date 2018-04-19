@@ -106,7 +106,7 @@ public class JHotel
         Room E1 = new DoubleRoom(E,"B202");
         try {
             DatabaseRoom.addRoom(E1);
-            DatabaseRoom.addRoom(D2);
+            DatabaseRoom.addRoom(E1);
         }
         catch(RoomSudahAdaException e){
             System.out.println(e.getPesan());
@@ -166,8 +166,8 @@ public class JHotel
         System.out.println("\nKamar tidak ditemukan\n");
         try
         {
-            DatabaseRoom.removeRoom(D,"101");
-            DatabaseRoom.removeRoom(D,"101");
+            DatabaseRoom.removeRoom(D,"A101");
+            DatabaseRoom.removeRoom(D,"A101");
         }
         catch (RoomTidakDitemukanException e){
             System.out.println(e.getPesan());
