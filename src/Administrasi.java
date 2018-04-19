@@ -44,12 +44,12 @@ public class Administrasi
     }*/
     
     public static void pesananDibatalkan(Room kamar){
-        Pesanan pesan = DatabasePesanan.getPesanan(kamar);
-        pesan.setStatusSelesai(false);
-        pesan.setStatusDiproses(false);
+        //Pesanan pesan = DatabasePesanan.getPesanan(kamar);
+        //pesan.setStatusSelesai(false);
+        //pesan.setStatusDiproses(false);
         //kamar.setPesanan(null);
-        pesan.setStatusAktif(false);
-        kamar.setStatusKamar(StatusKamar.Vacant);
+        //pesan.setStatusAktif(false);
+        //kamar.setStatusKamar(StatusKamar.Vacant);
     }
     
     public static void pesananSelesai(Room kamar){

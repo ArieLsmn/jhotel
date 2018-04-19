@@ -32,14 +32,16 @@ public class DatabaseHotel
         //if(HOTEL_DATABASE.contains(baru.getID()))
         for (int i = 0; i < HOTEL_DATABASE.size(); i++) {
             Hotel findHotel = HOTEL_DATABASE.get(i);
-            if ( (findHotel.getID()==baru.getID())||(findHotel.getNama()==baru.getNama() && findHotel.getLokasi()==baru.getLokasi()) )
+            if ( findHotel.getID()==baru.getID()||((findHotel.getNama()== baru.getNama()) && (findHotel.getLokasi()==baru.getLokasi())) )
             {
                 throw new HotelSudahAdaException(baru);
                 //return false;
             }
+        else break;
         }
-        HOTEL_DATABASE.add(baru);
+
         LAST_HOTEL_ID=baru.getID();
+        HOTEL_DATABASE.add(baru);
         return true;
     }
     public static Hotel getHotel(int id){
@@ -55,23 +57,23 @@ public class DatabaseHotel
         return null;
     }
     public static boolean removeHotel(int id) throws HotelTidakDitemukanException /*, RoomTidakDitemukanException*/ {
-        for(Hotel findHotel : HOTEL_DATABASE)
-        {
+        //for(Hotel findHotel : HOTEL_DATABASE)
+        for (int i = 0; i < HOTEL_DATABASE.size(); i++) {
+            Hotel findHotel = HOTEL_DATABASE.get(i);
             if(findHotel.getID() == id)
             {
-                try {
-                for(Room findRoom : DatabaseRoom.getRoomsFromHotel(findHotel)) {
-
-                        DatabaseRoom.removeRoom(findHotel, findRoom.getNomorKamar());
+                    for (Room findRoom : DatabaseRoom.getRoomsFromHotel(findHotel)) {
+                        try {
+                            DatabaseRoom.removeRoom(findHotel, findRoom.getNomorKamar());
+                        }
+                        catch (RoomTidakDitemukanException e) {
+                            System.out.println(e.getPesan());
+                        }
                     }
-                    }
-                catch (RoomTidakDitemukanException e){
-                    return false;
                 }
+
                 HOTEL_DATABASE.remove(findHotel); 
                 return true;
-            }
-            
         }
         throw new HotelTidakDitemukanException(id);
         //return false;

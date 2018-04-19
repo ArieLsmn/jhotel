@@ -50,14 +50,18 @@ public class DatabaseCustomer
         return null; 
     }
     public static boolean removeCustomer(int id) throws PelangganTidakDitemukanException, PesananTidakDitemukanException {
-        for(Customer findCustomer : CUSTOMER_DATABASE){
+        for (int i = 0; i < CUSTOMER_DATABASE.size(); i++) {
+            Customer findCustomer = CUSTOMER_DATABASE.get(i);
             if(findCustomer.getID() == id){
-                for(Pesanan pesan : DatabasePesanan.getPesananDatabase()){
-                    if(pesan.getPelanggan() == findCustomer){
+                Pesanan pesan = DatabasePesanan.getPesananAktif(findCustomer);
+
+                    //if(pesan.getPelanggan() == findCustomer){
+                try{
                         DatabasePesanan.removePesanan(pesan);
                     }
+                    catch (PesananTidakDitemukanException e){
+                    System.out.println(e.getPesan());
                 }
-
                 CUSTOMER_DATABASE.remove(findCustomer);
                 return true;
             }

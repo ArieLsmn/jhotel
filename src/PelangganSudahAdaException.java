@@ -8,6 +8,6 @@ public class PelangganSudahAdaException extends Exception
     }
     public String getPesan(){
 
-        return (super.getMessage() + pelanggan_error + " sudah terdaftar.");
+        return (super.getMessage()+pelanggan_error+" sudah terdaftar.");
     }
 }

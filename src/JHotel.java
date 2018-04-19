@@ -16,83 +16,192 @@ public class JHotel
     {
 
     }
-    public static void main (String args[]) throws PelangganSudahAdaException, HotelSudahAdaException, RoomSudahAdaException, PesananSudahAdaException {
+    public static void main (String args[]) throws PelangganSudahAdaException, HotelSudahAdaException, RoomSudahAdaException, PesananSudahAdaException , PelangganTidakDitemukanException, PesananTidakDitemukanException
+    {
+        System.out.println("---TES EXCEPTION---\n");
+        System.out.println("\nPelanggan sudah ada\n");
+        Customer A = new Customer("A", 5, 1, 1998, "aaa@gmail.com");
         try
         {
-            Customer A = new Customer("A", 5, 1, 1998, "aaa@gmail.com");
             DatabaseCustomer.addCustomer(A);
-            Customer B = new Customer("B", 17, 8, 1945, "bbb@yahoo.com");
+        }
+        catch (PelangganSudahAdaException e){
+            System.out.println(e.getPesan());
+        }
+        Customer B = new Customer("B", 17, 8, 1945, "bbb@yahoo.com");
+        try
+        {
             DatabaseCustomer.addCustomer(B);
-            Customer C = new Customer("C", 6, 6, 1996, "ccc@rocketmail.com");
+            DatabaseCustomer.addCustomer(B);
+        }
+        catch (PelangganSudahAdaException e){
+            System.out.println(e.getPesan());
+        }
+        Customer C = new Customer("C", 6, 6, 1996, "ccc@rocketmail.com");
+        try
+        {
             DatabaseCustomer.addCustomer(C);
             DatabaseCustomer.addCustomer(A);
         }
         catch (PelangganSudahAdaException e){
-            System.out.println(e);
+            System.out.println(e.getPesan());
         }
         //System.out.println(DatabaseCustomer.getCustomerDatabase());
 
         /*for (int i=0;i<DatabaseCustomer.getCustomerDatabase().size();i++){
             System.out.println(DatabaseCustomer.getCustomerDatabase().get(i).toString());
         }*/
-        /*Customer getA = DatabaseCustomer.getCustomer(A.getID());
-        Customer getB = DatabaseCustomer.getCustomer(B.getID());
-        Customer getC = DatabaseCustomer.getCustomer(C.getID());
-        System.out.println(getA.toString());
-        System.out.println(getB.toString());
-        System.out.println(getC.toString());*/
-
+        System.out.println("\nHotel sudah ada\n");
         Hotel D = new Hotel("D",new Lokasi(1,1,"Depok"),5);
-        DatabaseHotel.addHotel(D);
+        try {
+            DatabaseHotel.addHotel(D);
+        }
+        catch(HotelSudahAdaException e){
+            System.out.println(e.getPesan());
+        }
         Hotel E = new Hotel("E",new Lokasi(2,2,"Empang"),5);
-        DatabaseHotel.addHotel(E);
+        try {
+            DatabaseHotel.addHotel(E);
+            DatabaseHotel.addHotel(E);
+        }
+        catch(HotelSudahAdaException e){
+            System.out.println(e.getPesan());
+        }
         Hotel F = new Hotel("F",new Lokasi(3,3,"Blok F"),5);
-        DatabaseHotel.addHotel(F);
-        Hotel G = new Hotel("G",new Lokasi(3,3,"Garut"),5);
-        DatabaseHotel.addHotel(G);
+        try {
+            DatabaseHotel.addHotel(F);
+        }
+        catch(HotelSudahAdaException e){
+            System.out.println(e.getPesan());
+        }
+        Hotel G = new Hotel("G",new Lokasi(4,4,"Garut"),5);
+        try {
+            DatabaseHotel.addHotel(G);
+            DatabaseHotel.addHotel(F);
+        }
+        catch(HotelSudahAdaException e){
+            System.out.println(e.getPesan());
+        }
         //System.out.println(DatabaseHotel.getHotelDatabase());
+        /*for (int i=0;i<DatabaseHotel.getHotelDatabase().size();i++){
+            System.out.println(DatabaseHotel.getHotelDatabase().get(i).toString());
+        }*/
+
+        System.out.println("\nKamar sudah ada\n");
+        Room D1 = new SingleRoom(D,"A101");
+        try {
+            DatabaseRoom.addRoom(D1);
+        }
+        catch(RoomSudahAdaException e){
+            System.out.println(e.getPesan());
+        }
+        Room D2 = new PremiumRoom(D,"D404");
+        try {
+            DatabaseRoom.addRoom(D2);
+            DatabaseRoom.addRoom(D1);
+        }
+        catch(RoomSudahAdaException e){
+            System.out.println(e.getPesan());
+        }
+        Room E1 = new DoubleRoom(E,"B202");
+        try {
+            DatabaseRoom.addRoom(E1);
+            DatabaseRoom.addRoom(D2);
+        }
+        catch(RoomSudahAdaException e){
+            System.out.println(e.getPesan());
+        }
+        Room F1 = new PremiumRoom(F,"C303");
+        try {
+            DatabaseRoom.addRoom(F1);
+        }
+        catch(RoomSudahAdaException e){
+            System.out.println(e.getPesan());
+        }
+        /*for (int i=0;i<DatabaseRoom.getRoomDatabase().size();i++){
+            System.out.println(DatabaseRoom.getRoomDatabase().get(i).toString());
+        }*/
+        System.out.println("\nPesanan sudah ada\n");
+        Pesanan pesanA = new Pesanan(3,A);
+        try {
+            DatabasePesanan.addPesanan(pesanA);
+        }
+        catch(PesananSudahAdaException e){
+            System.out.println(e.getPesan());
+        }
+        Pesanan pesanB = new Pesanan(5,B);
+        try {
+            DatabasePesanan.addPesanan(pesanB);
+            DatabasePesanan.addPesanan(pesanB);
+        }
+        catch(PesananSudahAdaException e){
+            System.out.println(e.getPesan());
+        }
+        Pesanan pesanC = new Pesanan(1,C);
+        try {
+            DatabasePesanan.addPesanan(pesanC);
+            DatabasePesanan.addPesanan(pesanB);
+        }
+        catch(PesananSudahAdaException e){
+            System.out.println(e.getPesan());
+        }
+        System.out.println("\nPelanggan tidak ditemukan\n");
+        try
+        {
+            DatabaseCustomer.removeCustomer(2);
+            DatabaseCustomer.removeCustomer(2);
+        }
+        catch (PelangganTidakDitemukanException e){
+            System.out.println(e.getPesan());
+        }
+        System.out.println("\nHotel tidak ditemukan\n");
+        try
+        {
+            DatabaseHotel.removeHotel(2);
+            DatabaseHotel.removeHotel(2);
+        }
+        catch (HotelTidakDitemukanException e){
+            System.out.println(e.getPesan());
+        }
+        System.out.println("\nKamar tidak ditemukan\n");
+        try
+        {
+            DatabaseRoom.removeRoom(D,"101");
+            DatabaseRoom.removeRoom(D,"101");
+        }
+        catch (RoomTidakDitemukanException e){
+            System.out.println(e.getPesan());
+        }
+        System.out.println("\nPesanan tidak ditemukan\n");
+        try
+        {
+            DatabasePesanan.removePesanan(pesanC);
+            DatabasePesanan.removePesanan(pesanC);
+        }
+        catch (PesananTidakDitemukanException e){
+            System.out.println(e.getPesan());
+        }
+        /*
+        for (int i=0;i<DatabasePesanan.getPesananDatabase().size();i++){
+            System.out.println(DatabasePesanan.getPesananDatabase().get(i).toString());
+        }*/
+        System.out.println("\nHASIL AKHIR");
+        System.out.println("\nPelanggan\n");
+        for (int i=0;i<DatabaseCustomer.getCustomerDatabase().size();i++){
+            System.out.println(DatabaseCustomer.getCustomerDatabase().get(i).toString());
+        }
+        System.out.println("\nHotel\n");
         for (int i=0;i<DatabaseHotel.getHotelDatabase().size();i++){
             System.out.println(DatabaseHotel.getHotelDatabase().get(i).toString());
         }
-        /*
-        Hotel getD = DatabaseHotel.getHotel(D.getID());
-        Hotel getE = DatabaseHotel.getHotel(E.getID());
-        Hotel getF = DatabaseHotel.getHotel(F.getID());
-        System.out.println(getD.toString());
-        System.out.println(getE.toString());
-        System.out.println(getF.toString());*/
-        
-        Room D1 = new SingleRoom(D,"A101");
-        DatabaseRoom.addRoom(D1);
-        Room D2 = new PremiumRoom(D,"D404");
-        DatabaseRoom.addRoom(D2);
-        Room E1 = new DoubleRoom(E,"B202");
-        DatabaseRoom.addRoom(E1);
-        Room F1 = new PremiumRoom(F,"C303");
-        DatabaseRoom.addRoom(F1);
+        System.out.println("\nKamar\n");
         for (int i=0;i<DatabaseRoom.getRoomDatabase().size();i++){
             System.out.println(DatabaseRoom.getRoomDatabase().get(i).toString());
         }
-        /*
-        Room getD1 = DatabaseRoom.getRoom(D1.getHotel(),D1.getNomorKamar());
-        Room getD2 = DatabaseRoom.getRoom(D2.getHotel(),D2.getNomorKamar());
-        Room getE1 = DatabaseRoom.getRoom(E1.getHotel(),E1.getNomorKamar());
-        Room getF1 = DatabaseRoom.getRoom(F1.getHotel(),F1.getNomorKamar());
-        System.out.println(getD1.toString());
-        System.out.println(getD2.toString());
-        System.out.println(getE1.toString());
-        System.out.println(getF1.toString());*/
-        Pesanan pesanA = new Pesanan(3,A);
-        DatabasePesanan.addPesanan(pesanA);
-        Pesanan pesanB = new Pesanan(5,B);
-        DatabasePesanan.addPesanan(pesanB);
-        Pesanan pesanC = new Pesanan(1,C);
-        DatabasePesanan.addPesanan(pesanC);
-
+        System.out.println("\nPesanan\n");
         for (int i=0;i<DatabasePesanan.getPesananDatabase().size();i++){
             System.out.println(DatabasePesanan.getPesananDatabase().get(i).toString());
         }
-
 
 
         /*

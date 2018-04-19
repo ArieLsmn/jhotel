@@ -1,6 +1,6 @@
 public class RoomTidakDitemukanException extends Exception {
-    Hotel hotel_error;
-    String room_error;
+    private Hotel hotel_error;
+    private String room_error;
 
     public RoomTidakDitemukanException(Hotel hotel_input, String room_input){
         super("Kamar yang terletak di : ");
@@ -9,6 +9,6 @@ public class RoomTidakDitemukanException extends Exception {
     }
     public String getPesan(){
 
-        return (super.getMessage() + hotel_error + " dan dengan nomor kamar " + room_error + "tidak ditemukan.");
+        return (super.getMessage() + hotel_error + " dan dengan nomor kamar " + room_error + " tidak ditemukan.");
     }
 }

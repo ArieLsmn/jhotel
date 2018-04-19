@@ -1,5 +1,5 @@
 public class HotelSudahAdaException extends Exception {
-    Hotel hotel_error;
+    private Hotel hotel_error;
 
     public HotelSudahAdaException(Hotel hotel_input){
         super("Hotel dengan nama : ");

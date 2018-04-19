@@ -45,11 +45,11 @@ public class DatabasePesanan
     
     public static Pesanan getPesanan(int id)
     {
-        for(Pesanan pesan : PESANAN_DATABASE)
+        for(Pesanan findPesanan : PESANAN_DATABASE)
         {
-            if(pesan.getID() == id)
+            if(findPesanan.getID() == id)
             {
-                return pesan;
+                return findPesanan;
             }
         }
 
@@ -59,17 +59,15 @@ public class DatabasePesanan
     
     public static Pesanan getPesanan(Room kamar)
     {
-        for(Pesanan pesanan : PESANAN_DATABASE)
-        {
-            if(pesanan.getRoom().equals(kamar))
-            {
-                return pesanan;
+        for(Pesanan findPesanan : PESANAN_DATABASE){
+            if(findPesanan.getRoom() == kamar){
+                return findPesanan;
             }
         }
-
         return null;
     }
-    
+
+
     public static Pesanan getPesananAktif(Customer pelanggan)
     {
         for(Pesanan pesanan : PESANAN_DATABASE)

@@ -1,5 +1,5 @@
 public class RoomSudahAdaException extends Exception {
-    Room room_error;
+    private Room room_error;
 
     public RoomSudahAdaException(Room room_input){
         super("Kamar dengan nomor ruang : ");
@@ -7,6 +7,6 @@ public class RoomSudahAdaException extends Exception {
     }
     public String getPesan(){
 
-        return (super.getMessage() + room_error.getNomorKamar() + " pada " + room_error.getHotel() + "sudah terdaftar.");
+        return (super.getMessage() + room_error.getNomorKamar() + " pada " + room_error.getHotel() + " sudah terdaftar.");
     }
 }

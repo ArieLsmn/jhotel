@@ -18,8 +18,11 @@ public class Customer
     protected Date dob;
     static Calendar cal;
     /** 
-     * @param id 
      * @param nama
+     * @param tanggal
+     * @param bulan
+     * @param tahun
+     * @param email
      */
     public Customer(String nama, int tanggal, int bulan, int tahun, String email){
        this.id = DatabaseCustomer.getLastCustomerID() + 1;
@@ -98,12 +101,12 @@ public class Customer
         String custName = "Name : "+this.nama+"\n";
         String custEmail = "E-mail : "+this.email+"\n";
         String custDOB = "DOB : "+this.dob+"\n";
-        String bookingProgress = "Booking order is in Progress\n";
+
         if(DatabasePesanan.getPesananAktif(this)!=null)
-        return custID+custName+custEmail+custDOB;
+        return custID+custName+custEmail+custDOB+"Booking order is in Progress\n";
 
         else 
-        return custID+custName+custEmail+custDOB+bookingProgress;
+        return custID+custName+custEmail+custDOB;
     }
     /*public void printData(){// berfungsi melakukan
         System.out.println("Customer");

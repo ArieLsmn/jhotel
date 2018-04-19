@@ -34,15 +34,16 @@ public class DatabaseRoom
     public static boolean addRoom(Room baru) throws RoomSudahAdaException {
         for(Room kamar : ROOM_DATABASE)
         {
-            if(!((kamar.getHotel()).equals(baru.getHotel())) &&
-                    !((kamar.getNomorKamar()).equals(baru.getNomorKamar())))
+            if(((kamar.getHotel())==(baru.getHotel())) && ((kamar.getNomorKamar())==(baru.getNomorKamar())))
             {
-                ROOM_DATABASE.add(baru);
-                return true;
+                throw new RoomSudahAdaException(baru);
+                //return false;
+
             }
+            else break;
         }
-        throw new RoomSudahAdaException(baru);
-        //return false;
+        ROOM_DATABASE.add(baru);
+        return true;
     }
     
     public static Room getRoom(Hotel hotel, String nomor_kamar)
