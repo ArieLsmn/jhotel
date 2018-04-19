@@ -16,19 +16,25 @@ public class JHotel
     {
 
     }
-    public static void main (String args[])
-    {
-        Customer A = new Customer("A",5,1,1998);
-        DatabaseCustomer.addCustomer(A);
-        Customer B = new Customer("B",17,8,1945);
-        DatabaseCustomer.addCustomer(B);
-        Customer C = new Customer("C",6,6,1996);
-        DatabaseCustomer.addCustomer(C);
+    public static void main (String args[]) throws PelangganSudahAdaException, HotelSudahAdaException, RoomSudahAdaException, PesananSudahAdaException {
+        try
+        {
+            Customer A = new Customer("A", 5, 1, 1998, "aaa@gmail.com");
+            DatabaseCustomer.addCustomer(A);
+            Customer B = new Customer("B", 17, 8, 1945, "bbb@yahoo.com");
+            DatabaseCustomer.addCustomer(B);
+            Customer C = new Customer("C", 6, 6, 1996, "ccc@rocketmail.com");
+            DatabaseCustomer.addCustomer(C);
+            DatabaseCustomer.addCustomer(A);
+        }
+        catch (PelangganSudahAdaException e){
+            System.out.println(e);
+        }
         //System.out.println(DatabaseCustomer.getCustomerDatabase());
 
-        for (int i=0;i<DatabaseCustomer.getCustomerDatabase().size();i++){
+        /*for (int i=0;i<DatabaseCustomer.getCustomerDatabase().size();i++){
             System.out.println(DatabaseCustomer.getCustomerDatabase().get(i).toString());
-        }
+        }*/
         /*Customer getA = DatabaseCustomer.getCustomer(A.getID());
         Customer getB = DatabaseCustomer.getCustomer(B.getID());
         Customer getC = DatabaseCustomer.getCustomer(C.getID());
@@ -36,12 +42,14 @@ public class JHotel
         System.out.println(getB.toString());
         System.out.println(getC.toString());*/
 
-        Hotel D = new Hotel("D",new Lokasi(1,1,"D"),5);
+        Hotel D = new Hotel("D",new Lokasi(1,1,"Depok"),5);
         DatabaseHotel.addHotel(D);
-        Hotel E = new Hotel("E",new Lokasi(2,2,"E"),5);
+        Hotel E = new Hotel("E",new Lokasi(2,2,"Empang"),5);
         DatabaseHotel.addHotel(E);
-        Hotel F = new Hotel("F",new Lokasi(3,3,"F"),5);
+        Hotel F = new Hotel("F",new Lokasi(3,3,"Blok F"),5);
         DatabaseHotel.addHotel(F);
+        Hotel G = new Hotel("G",new Lokasi(3,3,"Garut"),5);
+        DatabaseHotel.addHotel(G);
         //System.out.println(DatabaseHotel.getHotelDatabase());
         for (int i=0;i<DatabaseHotel.getHotelDatabase().size();i++){
             System.out.println(DatabaseHotel.getHotelDatabase().get(i).toString());
@@ -54,13 +62,13 @@ public class JHotel
         System.out.println(getE.toString());
         System.out.println(getF.toString());*/
         
-        Room D1 = new SingleRoom(D,"A101",true,StatusKamar.Vacant);
+        Room D1 = new SingleRoom(D,"A101");
         DatabaseRoom.addRoom(D1);
-        Room D2 = new PremiumRoom(D,"D404",true,StatusKamar.Booked);
+        Room D2 = new PremiumRoom(D,"D404");
         DatabaseRoom.addRoom(D2);
-        Room E1 = new DoubleRoom(E,"B202",true,StatusKamar.Vacant);
+        Room E1 = new DoubleRoom(E,"B202");
         DatabaseRoom.addRoom(E1);
-        Room F1 = new PremiumRoom(F,"C303",true,StatusKamar.Vacant);
+        Room F1 = new PremiumRoom(F,"C303");
         DatabaseRoom.addRoom(F1);
         for (int i=0;i<DatabaseRoom.getRoomDatabase().size();i++){
             System.out.println(DatabaseRoom.getRoomDatabase().get(i).toString());
@@ -84,6 +92,10 @@ public class JHotel
         for (int i=0;i<DatabasePesanan.getPesananDatabase().size();i++){
             System.out.println(DatabasePesanan.getPesananDatabase().get(i).toString());
         }
+
+
+
+        /*
         Administrasi.pesananDitugaskan(pesanA,D1);
         Administrasi.pesananDitugaskan(pesanA,D2);
         Administrasi.pesananDitugaskan(pesanB,E1);
@@ -98,7 +110,7 @@ public class JHotel
         System.out.println("Pesanan Selesai dan Dibatalkan");
         for (int i=0;i<DatabasePesanan.getPesananDatabase().size();i++){
             System.out.println(DatabasePesanan.getPesananDatabase().get(i).toString());
-        }
+        }*/
         /*
        Lokasi lokasi1 = new Lokasi(100,100,"Indonesia");
        Hotel hotel1 = new Hotel("Prodeo",lokasi1,5);

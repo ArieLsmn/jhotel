@@ -17,7 +17,7 @@ public class DatabaseHotel
     /**
      * An example of a method - replace this comment with your own
      *
-     * @param  y  a sample parameter for a method
+     * @param
      * @return    the sum of x and y
      */
     
@@ -28,18 +28,19 @@ public class DatabaseHotel
     public static int getLastHotelID(){
         return LAST_HOTEL_ID;
     }
-    public static boolean addHotel(Hotel baru)
-    {
-        if(HOTEL_DATABASE.contains(baru.getID()))
-        {      
-            return false;
+    public static boolean addHotel(Hotel baru) throws HotelSudahAdaException {
+        //if(HOTEL_DATABASE.contains(baru.getID()))
+        for (int i = 0; i < HOTEL_DATABASE.size(); i++) {
+            Hotel findHotel = HOTEL_DATABASE.get(i);
+            if ( (findHotel.getID()==baru.getID())||(findHotel.getNama()==baru.getNama() && findHotel.getLokasi()==baru.getLokasi()) )
+            {
+                throw new HotelSudahAdaException(baru);
+                //return false;
+            }
         }
-        else 
-        {   HOTEL_DATABASE.add(baru);
-            LAST_HOTEL_ID=baru.getID();
-            return true;   
-        }
-        
+        HOTEL_DATABASE.add(baru);
+        LAST_HOTEL_ID=baru.getID();
+        return true;
     }
     public static Hotel getHotel(int id){
         for(Hotel findHotel : HOTEL_DATABASE)
@@ -53,19 +54,26 @@ public class DatabaseHotel
         }
         return null;
     }
-    public static boolean removeHotel(int id){
+    public static boolean removeHotel(int id) throws HotelTidakDitemukanException /*, RoomTidakDitemukanException*/ {
         for(Hotel findHotel : HOTEL_DATABASE)
         {
             if(findHotel.getID() == id)
             {
-                for(Room findRoom : DatabaseRoom.getRoomsFromHotel(findHotel)){
-                    DatabaseRoom.removeRoom(findHotel, findRoom.getNomorKamar());
+                try {
+                for(Room findRoom : DatabaseRoom.getRoomsFromHotel(findHotel)) {
+
+                        DatabaseRoom.removeRoom(findHotel, findRoom.getNomorKamar());
+                    }
+                    }
+                catch (RoomTidakDitemukanException e){
+                    return false;
                 }
                 HOTEL_DATABASE.remove(findHotel); 
                 return true;
             }
             
         }
-        return false;
+        throw new HotelTidakDitemukanException(id);
+        //return false;
     }
 }

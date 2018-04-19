@@ -9,7 +9,7 @@
 public abstract class Room
 {
     // instance variables - replace the example below with your own
-    private Hotel hotel = new Hotel("Prodeo",new Lokasi(100,100,"Jakarta"),5);
+    private Hotel hotel;//new Hotel("Prodeo",new Lokasi(100,100,"Jakarta"),5);
     private String nomor_kamar;
     //private boolean isAvailable;
     private StatusKamar status_kamar=StatusKamar.Vacant;
@@ -19,14 +19,13 @@ public abstract class Room
     /**
      * Constructor for objects of class Room
      */
-    public Room(Hotel hotel,String nomor_kamar,
-                StatusKamar status_kamar){
+    public Room(Hotel hotel,String nomor_kamar){
         this.hotel=hotel;
         this.nomor_kamar=nomor_kamar;
         //this.isAvailable=isAvailable;
         //this.pesan=pesan;
-        this.dailyTariff=dailyTariff;
-        this.status_kamar=status_kamar;
+        //this.dailyTariff=dailyTariff;
+        //this.status_kamar=status_kamar;
     }
 
     /**

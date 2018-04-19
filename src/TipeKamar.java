@@ -19,6 +19,6 @@ public enum TipeKamar
     }
    
     public String toString(){ 
-        return (this.deskripsi); 
+        return this.deskripsi;
     } 
 }

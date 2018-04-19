@@ -20,22 +20,25 @@ public class DatabasePesanan
         return LAST_PESANAN_ID;
     }
     
-    public static boolean addPesanan(Pesanan baru)
-    {
+    public static boolean addPesanan(Pesanan baru) throws PesananSudahAdaException {
         if(PESANAN_DATABASE.contains(baru))
         {
-            if(baru.getStatusAktif() == true)
-            {   
-                return false;
+            if(baru.getStatusAktif())
+            {
+                throw new PesananSudahAdaException(baru);
+                //return false;
+
             }
             else 
             {   PESANAN_DATABASE.add(baru);
+                LAST_PESANAN_ID=baru.getID();
                 return true;   
             }
         }
         else
         {
         PESANAN_DATABASE.add(baru);
+        LAST_PESANAN_ID=baru.getID();
         return true;       
         }
     }
@@ -81,31 +84,24 @@ public class DatabasePesanan
         }
         return null;
     }
-    public static boolean removePesanan(Pesanan pesan)
-        {
-        for(Pesanan pesanan : PESANAN_DATABASE)
-        {
-            if(pesanan.equals(pesan))
-            {
-                if(pesanan.getRoom() != null)
-                {
-                    Administrasi.pesananDibatalkan(pesanan);
-                }
-                else
-                {
-                    if(pesanan.getStatusAktif())
-                    {
-                        pesanan.setStatusAktif(false);
+    public static boolean removePesanan(Pesanan pesan) throws PesananTidakDitemukanException {
+            for(Pesanan findPesanan : PESANAN_DATABASE){
+                if(findPesanan.equals(pesan)){
+                    if(findPesanan.getRoom() != null){
+                        Administrasi.pesananDibatalkan(pesan);
                     }
-                }
+                    else{
+                        if(findPesanan.getStatusAktif() == true){
+                            findPesanan.setStatusAktif(false);
+                        }
+                    }
 
-                if(PESANAN_DATABASE.remove(pesanan))
-                {
+                    PESANAN_DATABASE.remove(pesan);
                     return true;
                 }
             }
+            throw new PesananTidakDitemukanException(pesan.getPelanggan());
+            //return false;
         }
-
-        return false;
     }
-}
+
