@@ -13,11 +13,12 @@ import java.text.*;
  */
 public class Customer
 {
-    protected int id=0;
-    protected String nama;
-    protected String email;
-    protected Date dob;
-    static Calendar cal;
+    private int id=0;
+    private String nama;
+    private String email;
+    private Date dob;
+    private String password;
+
     /**
      * Konstruktor Customer
      * @param nama
@@ -26,11 +27,12 @@ public class Customer
      * @param tahun
      * @param email
      */
-    public Customer(String nama, int tanggal, int bulan, int tahun, String email){
+    public Customer(String nama, int tanggal, int bulan, int tahun, String email,String password){
        this.id = DatabaseCustomer.getLastCustomerID() + 1;
        this.nama=nama;
        this.dob = new GregorianCalendar(tahun,bulan-1,tanggal).getTime();
        this.email=email;
+       this.password=password;
     }
     /**
      * Konstruktor Customer
@@ -38,11 +40,12 @@ public class Customer
      * @param dob
      * @param email
      */
-    public Customer( String nama, Date dob,String email){
+    public Customer( String nama, Date dob,String email,String password){
        this.id = DatabaseCustomer.getLastCustomerID() + 1;
        this.nama=nama;
        this.dob=dob;
        this.email=email;
+       this.password=password;
     }
     
     /**
@@ -78,6 +81,11 @@ public class Customer
         System.out.println(dobString);
         return dob;
         
+    }
+
+    public String getPassword(){
+        return password;
+
     }
 
     /**
@@ -121,6 +129,9 @@ public class Customer
         this.dob=dob;
     }
 
+    public void setPassword(String password){
+     this.password=password;
+    }
     /**
      *
      * @return String Data dari Customer dalam bentuk string

@@ -115,9 +115,9 @@ public abstract class Room
         String roomTipe = "Tipe : "+getTipeKamar()+"\n";
         String roomHarga = "Harga : "+dailyTariff+"\n";
         String roomStatus = "Status : "+status_kamar+"\n";
-        String roomPelanggan = "Pelanggan : "+DatabasePesanan.getPesanan(this)+"\n";
+        String roomPelanggan = "Pelanggan : "+DatabasePesanan.getPesananAktif(this)+"\n";
         //String roomCust = "Pelanggan : "+pesan.getPelanggan().getNama()+"\n";
-        if(DatabasePesanan.getPesanan(this)!= null)
+        if(DatabasePesanan.getPesananAktif(this)!= null)
         return roomHotel+roomTipe+roomHarga+roomStatus;//+roomCust;
         
         else

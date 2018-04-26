@@ -58,12 +58,13 @@ public class DatabasePesanan
     }
     
     
-    public static Pesanan getPesanan(Room kamar)
+    public static Pesanan getPesananAktif(Room kamar)
     {
         for(Pesanan findPesanan : PESANAN_DATABASE){
-            if(findPesanan.getRoom() == kamar){
+            if((findPesanan.getRoom() == kamar) && (findPesanan.getStatusAktif() == true)){
                 return findPesanan;
             }
+            else break;
         }
         return null;
     }
@@ -71,13 +72,13 @@ public class DatabasePesanan
 
     public static Pesanan getPesananAktif(Customer pelanggan)
     {
-        for(Pesanan pesanan : PESANAN_DATABASE)
+        for(Pesanan findPesanan : PESANAN_DATABASE)
         {
-            if(pesanan.getPelanggan().equals(pelanggan))
+            if(findPesanan.getPelanggan().equals(pelanggan))
             {
-                if(pesanan.getStatusAktif())
+                if(findPesanan.getStatusAktif())
                 {
-                    return pesanan;
+                    return findPesanan;
                 }
             }
         }

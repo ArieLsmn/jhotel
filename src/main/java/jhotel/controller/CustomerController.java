@@ -13,9 +13,10 @@ public class CustomerController {
     @RequestMapping(value="/newcustomer", method=RequestMethod.POST)
     public Customer newCust(@RequestParam(value="name") String name,
                             @RequestParam(value="email") String email,
+                            @RequestParam(value="password") String password,
                             @RequestParam(value="tahun",required=false,defaultValue="2000") int tahun)
     {
-        Customer customer = new Customer(name, 10, 10, tahun, email);
+        Customer customer = new Customer(name, 10, 10, tahun, email, password);
         try {
             DatabaseCustomer.addCustomer(customer);
         } catch(Exception ex) {
@@ -24,6 +25,12 @@ public class CustomerController {
         };
 
         return customer;
+    }
+
+    @RequestMapping("/logincust")
+    public Customer loginCust(@RequestParam(value="email") String email, @RequestParam(value="password") String password){
+        Customer cust=DatabaseCustomer.getCustomerLogin(email,password);
+        return cust;
     }
 
     @RequestMapping("/getcustomer/{id}")

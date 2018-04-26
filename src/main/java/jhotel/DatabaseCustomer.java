@@ -50,6 +50,16 @@ public class DatabaseCustomer
         }
         return null; 
     }
+
+    public static Customer getCustomerLogin(String email,String password){
+        for(Customer findCustomer : CUSTOMER_DATABASE){
+            if((findCustomer.getEmail()== email) && (findCustomer.getPassword()== password)){
+                return findCustomer;
+            }
+            else break;
+        }
+        return null;
+    }
     public static boolean removeCustomer(int id) throws PelangganTidakDitemukanException, PesananTidakDitemukanException {
         for (int i = 0; i < CUSTOMER_DATABASE.size(); i++) {
             Customer findCustomer = CUSTOMER_DATABASE.get(i);
