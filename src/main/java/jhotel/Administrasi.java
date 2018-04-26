@@ -1,4 +1,7 @@
 package jhotel;
+
+import java.util.ArrayList;
+
 /**
  * Program untuk fungsi Administrasi pelanggan pada hotel.
  *
@@ -97,6 +100,11 @@ public class Administrasi
         //pesan.setRoom(null);
         pesan.setStatusAktif(false);
     }
+    public static void cariKamarKosong(){
+        ArrayList<Room> kamarKosong = DatabaseRoom.getVacantRooms();
+        kamarKosong.toString();
+    }
+
 }
 
 

@@ -114,9 +114,9 @@ public class Pesanan
 
     /**
      *
-     * @param biaya
+     *
      */
-   public void setBiaya(double biaya){ //mutator untuk memasukkan nilai variabel biaya 
+   public void setBiaya(){ //mutator untuk memasukkan nilai variabel biaya
        this.biaya=(kamar.getDailyTariff())*jumlahHari;
    }
 

@@ -23,7 +23,28 @@ public class JHotel
     }
     public static void main (String args[]) throws PelangganSudahAdaException, HotelSudahAdaException, RoomSudahAdaException, PesananSudahAdaException , PelangganTidakDitemukanException, PesananTidakDitemukanException
     {
+        try{
+            DatabaseHotel.addHotel(new Hotel("Alexis", new Lokasi(1, 1, "Jakarta"), 7));
+            DatabaseHotel.addHotel(new Hotel("Prodeo", new Lokasi(2, 2, "Nusakambangan"), 5));
+        }
+        catch(HotelSudahAdaException e)
+        {
+            e.getPesan();
+        }
+
+        try
+        {
+            DatabaseRoom.addRoom(new SingleRoom(DatabaseHotel.getHotel(1), "A101"));
+            DatabaseRoom.addRoom(new PremiumRoom(DatabaseHotel.getHotel(1), "B202"));
+            DatabaseRoom.addRoom(new DoubleRoom(DatabaseHotel.getHotel(2), "C303"));
+
+        }
+        catch(RoomSudahAdaException e)
+        {
+            e.getPesan();
+        }
         SpringApplication.run(JHotel.class,args);
+
         /*System.out.println("---TES EXCEPTION---\n");
         System.out.println("\nPelanggan sudah ada\n");
         Customer A = new Customer("A", 5, 1, 1998, "aaa@gmail.com");
