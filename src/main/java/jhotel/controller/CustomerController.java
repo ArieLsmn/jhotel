@@ -29,7 +29,7 @@ public class CustomerController {
 
     @RequestMapping("/logincust")
     public Customer loginCust(@RequestParam(value="email") String email, @RequestParam(value="password") String password){
-        Customer cust=DatabaseCustomer.getCustomerLogin(email,password);
+        Customer cust = DatabaseCustomer.getCustomerLogin(email,password);
         return cust;
     }
 

@@ -46,17 +46,18 @@ public class DatabaseCustomer
                 return findCustomer;
             }           
             else
-            return null;
+            break;
         }
         return null; 
     }
 
     public static Customer getCustomerLogin(String email,String password){
-        for(Customer findCustomer : CUSTOMER_DATABASE){
-            if((findCustomer.getEmail()== email) && (findCustomer.getPassword()== password)){
+        for(Customer findCustomer : CUSTOMER_DATABASE)
+        {
+            if(findCustomer.getEmail().equals(email) && findCustomer.getPassword().equals(password))
+            {
                 return findCustomer;
             }
-            else break;
         }
         return null;
     }

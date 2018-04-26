@@ -43,6 +43,11 @@ public class JHotel
         {
             e.getPesan();
         }
+
+
+        //DatabaseCustomer.addCustomer(new Customer("AAA",10,10,2010,"abcd@gmail.com","12345"));
+        //DatabaseCustomer.getCustomerLogin("abcd@gmail.com","12345").toString();
+
         SpringApplication.run(JHotel.class,args);
 
         /*System.out.println("---TES EXCEPTION---\n");
