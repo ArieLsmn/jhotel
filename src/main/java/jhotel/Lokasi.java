@@ -4,7 +4,7 @@ package jhotel;
  *
  * @author Aria Lesmana
  * @version 1.7
- * @sicne 19-4-2018
+ * @since 19-4-2018
  * 
  * 
  */

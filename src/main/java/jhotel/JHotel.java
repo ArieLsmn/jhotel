@@ -2,13 +2,15 @@ package jhotel;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.Date;
+
 @SpringBootApplication
 /**
  * Class program utama JHotel
  *
  * @author Aria Lesmana
- * @version 1.7
- * @since 19-4-2018
+ * @version 1.8
+ * @since 26-4-2018
  */
 public class JHotel
 {
@@ -21,9 +23,9 @@ public class JHotel
     {
 
     }
-    public static void main (String args[]) throws PelangganSudahAdaException, HotelSudahAdaException, RoomSudahAdaException, PesananSudahAdaException , PelangganTidakDitemukanException, PesananTidakDitemukanException
+    public static void main (String args[]) throws NullPointerException, PelangganSudahAdaException, HotelSudahAdaException, RoomSudahAdaException, PesananSudahAdaException , PelangganTidakDitemukanException, PesananTidakDitemukanException
     {
-        try{
+        /*try{
             DatabaseHotel.addHotel(new Hotel("Alexis", new Lokasi(1, 1, "Jakarta"), 7));
             DatabaseHotel.addHotel(new Hotel("Prodeo", new Lokasi(2, 2, "Nusakambangan"), 5));
         }
@@ -45,9 +47,50 @@ public class JHotel
         }
 
 
-        //DatabaseCustomer.addCustomer(new Customer("AAA",10,10,2010,"abcd@gmail.com","12345"));
+        DatabaseCustomer.addCustomer(new Customer("Aria",10,10,2010,"abcd@gmail.com","12345"));
+        DatabaseCustomer.addCustomer(new Customer("Ben",10,10,2000,"bebas@gmail.com","abcde"));
         //DatabaseCustomer.getCustomerLogin("abcd@gmail.com","12345").toString();
 
+        Customer pelanggan = DatabaseCustomer.getCustomer(1);
+        Room kamar = DatabaseRoom.getRoom(DatabaseHotel.getHotel(1 ),"A101");
+        //kamar.toString();
+        Pesanan pesan = new Pesanan(5, pelanggan);
+        /*
+        try {
+            DatabasePesanan.addPesanan(pesan);
+            Administrasi.pesananDitugaskan(DatabasePesanan.getPesananAktif(kamar), kamar);
+            if(kamar != null)
+                pesan.setBiaya();
+            pesan.setTanggalPesan(new Date());
+            Pesanan pesanAktif = DatabasePesanan.getPesananAktif(pelanggan);
+            pesanAktif.toString();
+        } catch (PesananSudahAdaException e) {
+            e.getPesan();}
+        DatabasePesanan.addPesanan(pesan);
+        for (int i=0;i<DatabasePesanan.getPesananDatabase().size();i++) {
+            System.out.println(DatabasePesanan.getPesananDatabase().get(i).toString());
+        }
+        DatabasePesanan.getPesananAktif(kamar);
+        */
+        Hotel hotel1 = new Hotel("Prodeo", new Lokasi(2, 2, "Nusakambangan"), 5);
+        try{
+            DatabaseHotel.addHotel(hotel1);
+        }
+        catch(HotelSudahAdaException e)
+        {
+            e.getPesan();
+        }
+        try
+        {
+            DatabaseRoom.addRoom(new SingleRoom(DatabaseHotel.getHotel(1), "A101"));
+            DatabaseRoom.addRoom(new PremiumRoom(DatabaseHotel.getHotel(1), "B202"));
+            DatabaseRoom.addRoom(new DoubleRoom(DatabaseHotel.getHotel(1), "C303"));
+
+        }
+        catch(RoomSudahAdaException e)
+        {
+            e.getPesan();
+        }
         SpringApplication.run(JHotel.class,args);
 
         /*System.out.println("---TES EXCEPTION---\n");

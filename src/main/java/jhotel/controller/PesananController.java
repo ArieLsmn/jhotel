@@ -30,10 +30,9 @@ public class PesananController {
         Pesanan pesan = new Pesanan(jumlah_hari, pelanggan);
         try {
             DatabasePesanan.addPesanan(pesan);
-            Administrasi.pesananDitugaskan(DatabasePesanan.getPesananAktif(kamar), kamar);
+            Administrasi.pesananDitugaskan(/*DatabasePesanan.getPesananAktif(kamar)*/pesan, kamar);
             if(kamar != null)
                 pesan.setBiaya();
-
             pesan.setTanggalPesan(new Date());
             Pesanan pesanAktif = DatabasePesanan.getPesananAktif(pelanggan);
             return pesanAktif;

@@ -3,7 +3,7 @@ package jhotel;
  * Pendata kamar pada Hotel
  *
  * @author Aria Lesmana
- * @version 1.7
+ * @version 1.8
  * @since 19-4-2018
  */
 public abstract class Room
@@ -25,7 +25,7 @@ public abstract class Room
         //this.isAvailable=isAvailable;
         //this.pesan=pesan;
         //this.dailyTariff=dailyTariff;
-        //this.status_kamar=status_kamar;
+        this.status_kamar=StatusKamar.Vacant;;
     }
 
     /**
@@ -117,7 +117,7 @@ public abstract class Room
         String roomStatus = "Status : "+status_kamar+"\n";
         String roomPelanggan = "Pelanggan : "+DatabasePesanan.getPesananAktif(this)+"\n";
         //String roomCust = "Pelanggan : "+pesan.getPelanggan().getNama()+"\n";
-        if(DatabasePesanan.getPesananAktif(this)!= null)
+        if(DatabasePesanan.getPesananAktif(this)== null)
         return roomHotel+roomTipe+roomHarga+roomStatus;//+roomCust;
         
         else
