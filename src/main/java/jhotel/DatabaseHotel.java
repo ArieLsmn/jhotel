@@ -40,7 +40,7 @@ public class DatabaseHotel
      * @return LAST_HOTEL_ID id hotel
      *
      */
-    public static int getLastHotelId(){
+    public static int getLastHotelID(){
         return LAST_HOTEL_ID;
     }
 
