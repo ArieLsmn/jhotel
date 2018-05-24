@@ -29,31 +29,32 @@ public abstract class Room
     }
 
     /**
-     * @return    the sum of x and y
+     * getter hotel
+     * @return hotel
      */
     public Hotel getHotel(){
         return hotel;    
     }
 
     /**
-     *
-     * @return
+     * getter nomor kamar
+     * @return nomor_kamar
      */
     public String getNomorKamar(){
         return nomor_kamar;
     }
 
     /**
-     *
-     * @return
+     * getter daily tariff
+     * @return dailyTariff
      */
     public double getDailyTariff(){
         return dailyTariff;
     }
 
     /**
-     *
-     * @return
+     * getter status kamar
+     * @return status_kamar
      */
     public StatusKamar getStatusKamar(){
         return status_kamar;
@@ -64,13 +65,13 @@ public abstract class Room
     }*/
 
     /**
-     *
-     * @return
+     * Method abstrak getter tipe kamar
+     * @return tipe_kamar
      */
     abstract public TipeKamar getTipeKamar();
 
     /**
-     *
+     * Setter hotel
      * @param hotel
      */
     public void setHotel(Hotel hotel)
@@ -79,7 +80,7 @@ public abstract class Room
     }
 
     /**
-     *
+     * Setter nomor kamar
      * @param nomor_kamar
      */
     public void setNomorKamar(String nomor_kamar){
@@ -87,7 +88,7 @@ public abstract class Room
     }
 
     /**
-     *
+     * Setter daily tariff
      * @param dailyTariff
      */
     public void setDailyTariff(double dailyTariff){
@@ -95,7 +96,7 @@ public abstract class Room
     }
 
     /**
-     *
+     * Setter status kamar
      * @param status_kamar
      */
     public void setStatusKamar(StatusKamar status_kamar){
@@ -107,8 +108,8 @@ public abstract class Room
     }*/
 
     /**
-     *
-     * @return
+     * Menampilkan informasi kamar dalam string
+     * @return String informasi kamar
      */
     public String toString(){
         String roomHotel = "Hotel : "+hotel.getNama()+"\n";

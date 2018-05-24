@@ -73,29 +73,33 @@ public class JHotel
         DatabasePesanan.getPesananAktif(kamar);
         */
         Hotel hotel1 = new Hotel("Prodeo", new Lokasi(2, 2, "Nusakambangan"), 5);
+        Hotel hotel2 = new Hotel("Mako Brimob", new Lokasi(1, 2, "Depok"), 5);
         try{
             DatabaseHotel.addHotel(hotel1);
+            DatabaseHotel.addHotel(hotel2);
         }
         catch(HotelSudahAdaException e)
         {
             e.getPesan();
         }
+        Room room1 = new SingleRoom(DatabaseHotel.getHotel(1), "A101");
+        Room room2 = new PremiumRoom(DatabaseHotel.getHotel(1), "B202");
+        Room room3 = new DoubleRoom(DatabaseHotel.getHotel(1), "C303");
+        room1.setDailyTariff(1000000);
+        room2.setDailyTariff(2000000);
+        room3.setDailyTariff(2000000);
         try
         {
-            DatabaseRoom.addRoom(new SingleRoom(DatabaseHotel.getHotel(1), "A101"));
-            DatabaseRoom.addRoom(new PremiumRoom(DatabaseHotel.getHotel(1), "B202"));
-            DatabaseRoom.addRoom(new DoubleRoom(DatabaseHotel.getHotel(1), "C303"));
+            DatabaseRoom.addRoom(room1);
+            DatabaseRoom.addRoom(room2);
+            DatabaseRoom.addRoom(room3);
 
         }
         catch(RoomSudahAdaException e)
         {
             e.getPesan();
         }
-        SpringApplication.run(JHotel.class,args);
-
-        /*System.out.println("---TES EXCEPTION---\n");
-        System.out.println("\nPelanggan sudah ada\n");
-        Customer A = new Customer("A", 5, 1, 1998, "aaa@gmail.com");
+        Customer A = new Customer("A", 5, 1, 1998, "aaa@gmail.com","abcdefg");
         try
         {
             DatabaseCustomer.addCustomer(A);
@@ -103,6 +107,11 @@ public class JHotel
         catch (PelangganSudahAdaException e){
             System.out.println(e.getPesan());
         }
+        SpringApplication.run(JHotel.class,args);
+
+        /*System.out.println("---TES EXCEPTION---\n");
+        System.out.println("\nPelanggan sudah ada\n");
+
         Customer B = new Customer("B", 17, 8, 1945, "bbb@yahoo.com");
         try
         {

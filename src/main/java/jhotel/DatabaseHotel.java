@@ -19,6 +19,7 @@ public class DatabaseHotel
      * Metode untuk menambah Hotel
      *
      * @param baru hotel baru
+     * @throws HotelSudahAdaException
      *
      */
     public static boolean addHotel(Hotel baru) throws HotelSudahAdaException
@@ -35,9 +36,9 @@ public class DatabaseHotel
     }
 
     /**
-     * Metode untuk menghapus hotel
+     * Metode untuk mendapat id hotel terakhir
      *
-     * @return LAST_HOTEL_ID id hotel
+     * @return LAST_HOTEL_ID
      *
      */
     public static int getLastHotelID(){
@@ -48,6 +49,7 @@ public class DatabaseHotel
      * Metode untuk menghapus hotel
      *
      * @param id id hotel
+     * @throws HotelTidakDitemukanException
      *
      */
     public static boolean removeHotel(int id) throws HotelTidakDitemukanException
@@ -73,6 +75,12 @@ public class DatabaseHotel
         throw new HotelTidakDitemukanException(id);
     }
 
+    /**
+     * Method untuk mendapatkan hotel berdasar id yang diberikan
+     *
+     * @param id hotel
+     * @return tes hotel yang ditemukan
+     */
     public static Hotel getHotel(int id){
         for (int i = 0; i < HOTEL_DATABASE.size(); i++) {
             Hotel tes = HOTEL_DATABASE.get(i);
@@ -85,6 +93,7 @@ public class DatabaseHotel
     /**
      * Metode untuk mengambil data di database
      *
+     * @return HOTEL_DATABASE
      */
     public static ArrayList<Hotel> getHotelDatabase()
     {

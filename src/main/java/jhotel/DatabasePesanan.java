@@ -16,10 +16,20 @@ public class DatabasePesanan
     private static int LAST_PESANAN_ID = 0;
     private static String[] list_pesanan;
 
+    /**
+     * Method untuk mengambil seluruh database pesanan
+     *
+     * @return PESANAN_DATABASE
+     */
     public static ArrayList<Pesanan> getPesananDatabase(){
         return PESANAN_DATABASE;
     }
 
+    /**
+     * Method untuk mendapatkan id pesanan terakhir
+     *
+     * @return LAST_PESANAN_ID
+     */
     public static int getLastPesananID(){
         return LAST_PESANAN_ID;
     }
@@ -28,6 +38,7 @@ public class DatabasePesanan
      * Metode untuk menambah pesanan
      *
      * @param baru pesanan baru
+     * @throws PesananSudahAdaException exeption pesanan kalo udah ada
      *
      */
     public static boolean addPesanan(Pesanan baru) throws PesananSudahAdaException
@@ -58,6 +69,7 @@ public class DatabasePesanan
      * Metode untuk menghapus pesanan
      *
      * @param pesan pesanan
+     * @throws PesananTidakDitemukanException exeption jika pesanan tidak ada
      *
      */
     public static boolean removePesanan(Customer pesan) throws PesananTidakDitemukanException
@@ -87,9 +99,10 @@ public class DatabasePesanan
     }
 
     /**
-     * Metode untuk mengambil pesanan
+     * Metode untuk mengambil pesanan berdasarkan id
      *
-     * @param id data customer
+     * @param id id pesanan
+     * @return tes pesanan terpilih
      *
      */
     public static Pesanan getPesanan(int id)
@@ -103,6 +116,13 @@ public class DatabasePesanan
         return null;
     }
 
+    /**
+     * Metode untuk mengambil pesanan berdasarkan kamar
+     *
+     * @param kamar kamar pesanan
+     * @return pesanan pesanan terpilih
+     *
+     */
     public static Pesanan getPesananAktif(Room kamar)
     {
         for(Pesanan pesanan : PESANAN_DATABASE)
@@ -116,6 +136,13 @@ public class DatabasePesanan
         return null;
     }
 
+    /**
+     * Metode untuk mengambil pesanan berdasarkan customer
+     *
+     * @param pelanggan customer pesanan
+     * @return tes pesanan terpilih
+     *
+     */
     public static Pesanan getPesananAktif(Customer pelanggan)
     {
         for (int i = 0; i < PESANAN_DATABASE.size(); i++) {
@@ -125,16 +152,5 @@ public class DatabasePesanan
             }
         }
         return null;
-    }
-
-    /**
-     * Metode untuk membatalkan pesanan
-     *
-     * @param pesan pesanan
-     *
-     */
-    public static void pesananDibatalkan(Pesanan pesan)
-    {
-
     }
 }

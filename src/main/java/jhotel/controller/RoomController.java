@@ -17,4 +17,11 @@ public class RoomController {
         Room room = DatabaseRoom.getRoom(DatabaseHotel.getHotel(id_hotel),nomor_kamar);
         return room;
     }
+
+    @RequestMapping(value="/databaserooms", method=RequestMethod.GET)
+    public ArrayList<Room> databaseRooms() {
+        ArrayList<Room> kamar = DatabaseRoom.getRoomDatabase();
+        return kamar;
+    }
+
 }

@@ -16,7 +16,7 @@ public class DatabaseCustomer
     private static int LAST_CUSTOMER_ID = 0;
 
     /**
-     * Metode untuk menambah Customer
+     * Metode untuk mengambil id terakhir
      *
      * @return LAST_CUSTOMER_ID ID
      *
@@ -29,6 +29,7 @@ public class DatabaseCustomer
      * Metode untuk menambah Customer
      *
      * @param baru customer baru
+     * @throws PelangganSudahAdaException
      *
      */
     public static boolean addCustomer(Customer baru) throws PelangganSudahAdaException
@@ -45,17 +46,18 @@ public class DatabaseCustomer
     }
 
     /**
-     * Metode untuk menambah Customer
+     * Metode untuk mendapat customer bedasarkan id
      *
      * @param id id
+     * @return customer yang dicari
      *
      */
     public static Customer getCustomer(int id)
     {
         for (int i = 0; i < CUSTOMER_DATABASE.size(); i++) {
-            Customer tes = CUSTOMER_DATABASE.get(i);
-            if (tes.getID()==id){
-                return tes;
+            Customer cust = CUSTOMER_DATABASE.get(i);
+            if (cust.getID()==id){
+                return cust;
             }
         }
         return null;
@@ -66,14 +68,15 @@ public class DatabaseCustomer
      *
      * @param email email
      * @param password password
+     * @return customer yang diambil berdasar login
      *
      */
     public static Customer getCustomerLogin(String email, String password)
     {
         for (int i = 0; i < CUSTOMER_DATABASE.size(); i++) {
-            Customer tes = CUSTOMER_DATABASE.get(i);
-            if (tes.getEmail().equals(email)&&tes.getPassword().equals(password)){
-                return tes;
+            Customer cust = CUSTOMER_DATABASE.get(i);
+            if (cust.getEmail().equals(email)&&cust.getPassword().equals(password)){
+                return cust;
             }
         }
         return null;
@@ -83,6 +86,7 @@ public class DatabaseCustomer
      * Metode untuk menghapus customer
      *
      * @param id id customer
+     * @throws PelangganTidakDitemukanException
      *
      */
     public static boolean removeCustomer(int id) throws PelangganTidakDitemukanException
@@ -107,6 +111,8 @@ public class DatabaseCustomer
 
     /**
      * Metode untuk mengambil data di database
+     *
+     * @return CUSTOMER_DATABASE
      *
      */
     public static ArrayList<Customer> getCustomerDatabase()
